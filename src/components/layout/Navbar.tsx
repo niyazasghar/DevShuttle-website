@@ -31,6 +31,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <nav
       className={cn(
@@ -81,10 +93,10 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[200] bg-background-dark p-8 md:p-16 flex flex-col justify-between"
+            className="fixed inset-0 z-[500] bg-background-dark p-8 md:p-16 flex flex-col justify-between overflow-y-auto"
           >
             <div>
-              <div className="flex justify-between items-center mb-24">
+              <div className="flex justify-between items-center mb-12 md:mb-24">
                 <span className="text-2xl font-display font-extrabold tracking-tighter">
                   DEV<span className="text-accent">SHUTTLE</span>
                 </span>
@@ -106,7 +118,7 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="text-5xl md:text-7xl font-display font-bold text-white hover:text-accent transition-colors duration-500"
+                      className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white hover:text-accent transition-colors duration-500"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}

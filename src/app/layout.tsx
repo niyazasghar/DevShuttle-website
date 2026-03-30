@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "sonner";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -38,10 +39,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${plusJakarta.variable} ${montserrat.variable} bg-background-dark text-white antialiased`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <Toaster position="top-center" richColors />
+        <SmoothScroll>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <Toaster position="top-center" richColors />
+        </SmoothScroll>
       </body>
     </html>
   );

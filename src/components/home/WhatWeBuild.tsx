@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { TextReveal } from "@/components/animations/TextReveal";
 
 const services = [
   {
@@ -50,11 +51,14 @@ export default function WhatWeBuild() {
           <div className="max-w-3xl">
              <span className="eyebrow">What We Build</span>
              <h2 className="text-section-title text-white !leading-[1.1] mb-10">
-                Engineering custom software solutions for startups.
+                <TextReveal delay={0.1}>Engineering custom software</TextReveal> <br />
+                <TextReveal delay={0.3} className="text-accent/80">solutions for startups.</TextReveal>
              </h2>
-             <p className="text-xl text-brand-gray-500 leading-relaxed font-light text-balance mb-12">
-                We specialize in building the technical infrastructure that high-growth businesses depend on. From customer-facing marketing sites to complex internal platforms.
-             </p>
+             <div className="text-xl text-brand-gray-500 leading-relaxed font-light text-balance mb-12">
+                <TextReveal delay={0.5} wordStagger={0.02}>
+                   We specialize in building the technical infrastructure that high-growth businesses depend on. From customer-facing marketing sites to complex internal platforms.
+                </TextReveal>
+             </div>
              
              <Link href="/services" className="btn-premium w-fit py-5 px-12 group">
                 <span>Explore All Services</span>

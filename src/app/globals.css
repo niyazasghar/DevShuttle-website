@@ -9,9 +9,6 @@
   --font-plus-jakarta: 'Plus Jakarta Sans', sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   @apply bg-background-dark text-white selection:bg-accent selection:text-white;

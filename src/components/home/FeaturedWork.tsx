@@ -61,17 +61,25 @@ export default function FeaturedWork() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1] as any, // Baunfire Easing
+              }}
               className="group cursor-pointer"
             >
               <Link href={project.href} className="block overflow-hidden relative mb-8 rounded-sm">
-                <div className="aspect-[4/3] w-full overflow-hidden transition-all duration-700 ease-in-out group-hover:scale-[1.03]">
+                <motion.div 
+                  initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+                  whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
+                  className="aspect-[4/3] w-full overflow-hidden transition-all duration-700 ease-in-out group-hover:scale-[1.03]"
+                >
                    <img
                      src={project.image}
                      alt={project.title}
-                     className="w-full h-full object-cover transition-all duration-700 opacity-90 group-hover:opacity-100 grayscale-[20%] group-hover:grayscale-0"
+                     className="w-full h-full object-cover transition-all duration-700 opacity-90 group-hover:opacity-100 group-hover:grayscale-0"
                    />
-                </div>
+                </motion.div>
                 
                 {/* Subtle Hover Overlay Indicator */}
                 <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

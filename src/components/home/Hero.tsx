@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Terminal } from "lucide-react";
 import Link from "next/link";
+import { TextReveal } from "@/components/animations/TextReveal";
 
 export default function Hero() {
   const containerVariants = {
@@ -10,19 +11,20 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.4,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
+        ease: [0.16, 1, 0.3, 1] as any, // Baunfire Easing
       },
     },
   };
@@ -54,26 +56,16 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <motion.h1
-            variants={itemVariants}
-            className="text-hero mb-10 text-white leading-tight"
-          >
-            Designing and building <br />
-            modern websites <br />
-            <span className="text-brand-gray-700">
-              and scalable web applications.
-            </span>
-          </motion.h1>
+          <h1 className="text-hero mb-10 text-white leading-tight">
+             <TextReveal delay={0.1}>Designing and building modern websites</TextReveal> <br />
+             <TextReveal delay={0.4} className="text-brand-gray-700">and scalable web applications.</TextReveal>
+          </h1>
 
-          <motion.p
-            variants={itemVariants}
-            className="text-xl md:text-3xl text-brand-gray-400 max-w-4xl mb-14 leading-[1.6] font-light text-balance"
-          >
-            We help startups and growing businesses launch high-performance
-            websites, SaaS MVPs, dashboards, and client-facing platforms with
-            clean design, reliable architecture, and production-ready
-            development.
-          </motion.p>
+          <div className="text-xl md:text-3xl text-brand-gray-400 max-w-4xl mb-14 leading-[1.6] font-light text-balance">
+             <TextReveal delay={0.6} wordStagger={0.02}>
+                We help startups and growing businesses launch high-performance websites, SaaS MVPs, dashboards, and client-facing platforms with clean design, reliable architecture, and production-ready development.
+             </TextReveal>
+          </div>
 
           <motion.div
             variants={itemVariants}

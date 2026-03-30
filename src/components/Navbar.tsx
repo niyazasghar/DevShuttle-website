@@ -1,6 +1,9 @@
+"use client";
+
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const navLinks = [
   { label: "Work", href: "/work" },
@@ -11,8 +14,8 @@ const navLinks = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleNavClick = useCallback(
     (href: string) => {
@@ -21,7 +24,7 @@ const Navbar = () => {
       // Internal page link (e.g. /work, /about)
       if (!href.includes("#")) {
         setTimeout(() => {
-          navigate(href);
+          router.push(href);
           window.scrollTo({ top: 0, behavior: "smooth" });
         }, 300);
         return;
@@ -31,7 +34,7 @@ const Navbar = () => {
       const hash = href.split("#")[1];
       const basePath = href.split("#")[0] || "/";
 
-      if (location.pathname === basePath || (basePath === "/" && location.pathname === "/")) {
+      if (pathname === basePath || (basePath === "/" && pathname === "/")) {
         setTimeout(() => {
           const el = document.getElementById(hash);
           if (el) {
@@ -42,7 +45,7 @@ const Navbar = () => {
         }, 300);
       } else {
         setTimeout(() => {
-          navigate(basePath);
+          router.push(basePath);
           // Wait for page to render, then scroll
           setTimeout(() => {
             const el = document.getElementById(hash);
@@ -55,7 +58,7 @@ const Navbar = () => {
         }, 300);
       }
     },
-    [location.pathname, navigate]
+    [pathname, router]
   );
 
   return (
@@ -67,7 +70,7 @@ const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md"
       >
         <div className="flex items-center justify-between px-6 md:px-12 py-5">
-          <Link to="/" className="font-heading text-xl font-bold tracking-tight text-foreground">
+          <Link href="/" className="font-heading text-xl font-bold tracking-tight text-foreground">
             DEVSHUTTLE
           </Link>
           <div className="flex items-center gap-6">

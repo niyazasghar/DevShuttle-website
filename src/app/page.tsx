@@ -21,13 +21,13 @@ export default function Home() {
             </h2>
             <div className="max-w-2xl">
                <p className="text-xl md:text-2xl text-brand-gray-400 leading-relaxed font-light mb-10 text-balance">
-                  DevShuttle is a software development studio focused on building modern websites, scalable web applications, and SaaS platforms for startups and growing businesses. We don’t just build interfaces; we architect the core systems that power modern businesses.
+                  DevShuttle is a digital agency focused on building premium websites, scalable web applications, and modern mobile apps for startups and growing businesses.
                </p>
                <p className="text-lg text-brand-gray-500 leading-relaxed font-light text-balance">
-                  From high-performance marketing websites and startup landing pages to complex dashboards and custom business platforms, our solutions are designed to help companies launch faster and scale their digital products.
+                  From high-performance marketing websites and landing pages to custom business platforms and native mobile applications, our solutions are designed to help companies launch faster and scale their digital presence.
                </p>
                <p className="text-md text-brand-gray-600 leading-relaxed font-light mt-8 pt-8 border-t border-white/5 italic">
-                  Technical foundation led by a software engineer with a background in Computer Science from the Indian Institute of Information Technology (IIIT), with experience in backend development, distributed systems, and modern web architecture.
+                  With a technical foundation led by an IIIT Graduate Software Engineer, we combine architectural depth with elite design to deliver exceptional digital products.
                </p>
             </div>
          </div>

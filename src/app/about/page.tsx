@@ -16,12 +16,12 @@ export default function AboutPage() {
             <div className="max-w-4xl">
                <span className="eyebrow">The Studio Story</span>
                <h1 className="text-hero text-white mb-10 leading-[0.95]">
-                  Technical foundations <br />
-                  for modern <br />
-                  <span className="text-brand-gray-700">software products.</span>
+                  Building premium <br />
+                  websites and <br />
+                  <span className="text-brand-gray-700">digital products.</span>
                </h1>
                <p className="text-xl md:text-3xl text-brand-gray-400 font-light leading-relaxed text-balance">
-                  DevShuttle is a software development studio focused on building modern websites, scalable web applications, and SaaS platforms for startups and growing businesses. We bridge the gap between architectural depth and elite design.
+                  DevShuttle is a digital agency focused on designing and building high-performance websites, scalable web applications, and modern mobile apps for startups and growing businesses.
                </p>
             </div>
 

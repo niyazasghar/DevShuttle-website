@@ -17,7 +17,7 @@ const projects = [
     category: "Web Application",
     title: "SwiftBase CRM",
     description: "A high-performance CRM built for high-growth startups.",
-    image: "/swiftbase_crm_product_shot_1774794642691.png",
+    image: "/swiftbase_crm.png",
     href: "/case-studies",
   },
   {

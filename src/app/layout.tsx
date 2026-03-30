@@ -26,7 +26,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "DevShuttle | Software Agency",
-  description: "DevShuttle builds modern websites, scalable web applications, and high-performance mobile applications for startups and growing businesses.",
+  description: "DevShuttle builds modern websites, scalable web applications, and high-performance mobile applications for startups and brands.",
   metadataBase: new URL("https://devshuttle.com"),
 };
 

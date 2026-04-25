@@ -13,7 +13,7 @@ function cn(...inputs: ClassValue[]) {
 
 const leftLinks = [
   { name: "Services", href: "/services" },
-  { name: "Solutions", href: "/solutions" },
+  { name: "Works", href: "/work" },
 ];
 
 const rightLinks = [
@@ -23,8 +23,7 @@ const rightLinks = [
 
 const allLinks = [
   { name: "Services", href: "/services" },
-  { name: "Solutions", href: "/solutions" },
-  { name: "Process", href: "/process" },
+  { name: "Works", href: "/work" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -64,7 +63,7 @@ export default function Navbar() {
           "mt-4 px-2 py-2 rounded-full border transition-all duration-700 ease-in-out flex items-center",
           isScrolled
             ? "bg-background-dark/80 backdrop-blur-xl border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
-            : "bg-background-dark/40 backdrop-blur-md border-white/20"
+            : "bg-background-dark/70 backdrop-blur-xl border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
         )}
       >
         {/* Left Links */}

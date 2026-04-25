@@ -71,13 +71,13 @@ export default function CustomCursor() {
       <motion.div
         className="fixed top-0 left-0 rounded-full border border-gray-300/20 pointer-events-none z-[9999] flex items-center justify-center"
         initial={{
-          width: 32,
-          height: 32,
+          width: 26,
+          height: 26,
           backgroundColor: "rgba(255, 255, 255, 0)"
         }}
         animate={{
-          width: isHovering ? 48 : 32,
-          height: isHovering ? 48 : 32,
+          width: isHovering ? 38 : 26,
+          height: isHovering ? 38 : 26,
           backgroundColor: isHovering ? "rgba(255, 255, 255, 0.05)" : "rgba(255, 255, 255, 0)",
         }}
         style={{
@@ -91,7 +91,7 @@ export default function CustomCursor() {
 
       {/* Inner Dot (Exact pointer) */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-accent pointer-events-none z-[10000]"
+        className="fixed top-0 left-0 w-[5.6px] h-[5.6px] rounded-full bg-accent pointer-events-none z-[10000]"
         animate={{
           scale: isHovering ? 0 : 1,
           opacity: isHovering ? 0 : 1,

@@ -131,7 +131,7 @@ export default function WorkPage() {
       </section>
 
       {/* Projects Grid — Offset Masonry Layout */}
-      <section className="container-wide pb-32 md:pb-48">
+      <section className="container-wide pb-32 md:pb-28">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-12 lg:gap-y-16">
           {allProjects.map((project, i) => (
             <div
@@ -169,7 +169,7 @@ export default function WorkPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="border-t border-black/5 py-24 md:py-32">
+      <section className="border-t border-black/5 py-24 md:py-16">
         <div className="container-wide text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}

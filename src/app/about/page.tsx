@@ -126,7 +126,7 @@ export default function AboutPage() {
       </section>
 
        {/* ─── Section 3: Culture & Values ─── */}
-      <section className="relative py-28 lg:py-40 bg-white">
+      <section className="relative py-28 lg:py-28 bg-white">
         <div className="container-wide relative z-10">
           <div className="max-w-3xl mx-auto text-center">
 
@@ -225,7 +225,7 @@ export default function AboutPage() {
       </section>
 
       {/* ─── Section 2: Mission Statement ─── */}
-      <section className="relative py-24 md:py-36 border-t border-black/5 overflow-hidden">
+      <section className="relative py-24 md:py-24 border-t border-black/5 overflow-hidden">
         <div className="container-wide">
           <div className="max-w-5xl">
             <motion.span

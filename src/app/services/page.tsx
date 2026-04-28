@@ -315,7 +315,7 @@ export default function ServicesPage() {
       </section>
 
       {/* 5. Partnership Section — High End Editorial */}
-      <section className="bg-white py-32 lg:py-56 relative z-30 border-t border-black/5 overflow-hidden">
+      <section className="bg-white py-32 lg:py-28 relative z-30 border-t border-black/5 overflow-hidden">
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-start">
             

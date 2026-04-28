@@ -48,7 +48,7 @@ export default function AboutPage() {
       </motion.span>
 
       {/* ─── Section 1: Hero ─── */}
-      <section className="relative pt-36 md:pt-48 pb-24 md:pb-36 overflow-hidden">
+      <section className="relative pt-36 md:pt-20 pb-24 md:pb-10 overflow-hidden">
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-24">
             {/* Left: Eyebrow + Heading */}
@@ -126,7 +126,7 @@ export default function AboutPage() {
       </section>
 
        {/* ─── Section 3: Culture & Values ─── */}
-      <section className="relative py-28 lg:py-40 bg-white">
+      <section className="relative py-2 lg:py-24 bg-white">
         <div className="container-wide relative z-10">
           <div className="max-w-3xl mx-auto text-center">
 
@@ -225,7 +225,7 @@ export default function AboutPage() {
       </section>
 
       {/* ─── Section 2: Mission Statement ─── */}
-      <section className="relative py-24 md:py-36 border-t border-black/5 overflow-hidden">
+      <section className="relative py-16 md:py-24 border-t border-black/5 overflow-hidden">
         <div className="container-wide">
           <div className="max-w-5xl">
             <motion.span
@@ -318,7 +318,7 @@ export default function AboutPage() {
      
 
       {/* ─── Section 4: Stats ─── */}
-      <section className="bg-white py-20 lg:py-32 border-y border-black/5 relative z-10">
+      <section className="bg-white py-16 lg:py-16 border-y border-black/5 relative z-10">
         <div className="container-wide">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24">
             {[

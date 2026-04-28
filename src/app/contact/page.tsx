@@ -28,7 +28,7 @@ export default function ContactPage() {
       </motion.span>
 
       {/* ─── Section 1: Hero ─── */}
-      <section className="relative pt-36 md:pt-48 pb-24 md:pb-36 overflow-hidden">
+      <section className="relative pt-36 md:pt-20 pb-24 md:pb-10 overflow-hidden">
         <div className="container-wide relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-24">
             <div className="lg:w-7/12">
@@ -97,7 +97,7 @@ export default function ContactPage() {
       </section>
 
       {/* ─── Section 2: Contact Form & Info Grid ─── */}
-      <section className="bg-white py-28 lg:py-40 border-t border-black/5 relative z-10">
+      <section className="bg-white py-6 lg:py-20 border-t border-black/5 relative z-10">
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
              
@@ -124,7 +124,7 @@ export default function ContactPage() {
                          <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Full Name</label>
                          <input 
                            type="text" 
-                           placeholder="John Doe" 
+                           placeholder="Write Your Name ...." 
                            className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors w-full"
                          />
                       </motion.div>
@@ -133,7 +133,7 @@ export default function ContactPage() {
                          <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Email Address</label>
                          <input 
                            type="email" 
-                           placeholder="john@example.com" 
+                           placeholder="example@gmail.com" 
                            className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors w-full"
                          />
                       </motion.div>
@@ -173,7 +173,7 @@ export default function ContactPage() {
                          <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Budget Range</label>
                          <input 
                            type="text" 
-                           placeholder="$10k - $20k" 
+                           placeholder="10k - 20k" 
                            className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors w-full"
                          />
                       </motion.div>

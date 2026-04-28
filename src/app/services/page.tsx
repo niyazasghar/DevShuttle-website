@@ -79,7 +79,7 @@ export default function ServicesPage() {
       {/* Wrapper to track scroll from the very top of the page */}
       <div ref={pageTopRef} className="overflow-x-hidden">
         {/* 1. Hero Text Section */}
-        <section className="relative pt-32 lg:pt-48 pb-16 overflow-hidden">
+        <section className="relative pt-32 lg:pt-24 pb-16 overflow-hidden">
           {/* Background Circles Pattern */}
           <div className="absolute top-[-10%] right-[-5%] w-[80vw] h-[80vw] opacity-[0.03] pointer-events-none">
             <svg viewBox="0 0 100 100" className="w-full h-full text-primary-dark">
@@ -104,7 +104,7 @@ export default function ServicesPage() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-[clamp(2.5rem,8vw,6.5rem)] font-extrabold leading-[0.92] tracking-tighter mb-8 text-primary-dark font-display"
+                  className="text-[clamp(2.5rem,8vw,5rem)] font-extrabold leading-[0.92] tracking-tighter mb-8 text-primary-dark font-display"
                 >
                   Development services <br />
                   built around <br />
@@ -176,7 +176,7 @@ export default function ServicesPage() {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true, margin: "-100px" }}
-                className="text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[1] tracking-tighter text-primary-dark font-display"
+                className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1] tracking-tighter text-primary-dark font-display"
               >
                 {"Services built around real business needs.".split(" ").map((word, idx) => (
                   <span key={idx} className="inline-block overflow-hidden mr-[0.25em] pb-4 -mb-4 pt-2">
@@ -254,7 +254,7 @@ export default function ServicesPage() {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true, margin: "-100px" }}
-                className="text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[1] tracking-tighter font-display"
+                className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1] tracking-tighter font-display"
               >
                 {"A clear process from idea to launch.".split(" ").map((word, idx) => (
                   <span key={idx} className="inline-block overflow-hidden mr-[0.25em] pb-4 -mb-4 pt-2">
@@ -350,7 +350,7 @@ export default function ServicesPage() {
       </section>
 
       {/* 5. Partnership Section — High End Editorial */}
-      <section className="bg-white py-32 lg:py-56 relative z-30 border-t border-black/5 overflow-hidden">
+      <section className="bg-white py-32 lg:py-24 relative z-30 border-t border-black/5 overflow-hidden">
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-start">
 

@@ -28,7 +28,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="pt-16 pb-32 lg:pt-24 lg:pb-44 relative z-10 bg-brand-gray-50">
+    <section className="pt-6 pb-24 lg:pt-10 lg:pb-24 relative z-10 bg-brand-gray-50">
       <div className="container-wide flex flex-col items-center">
 
         {/* Section heading */}

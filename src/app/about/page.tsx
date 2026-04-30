@@ -66,7 +66,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[1] tracking-tighter font-display text-primary-dark"
+                className="text-[clamp(2.5rem,7vw,4.6rem)] font-bold leading-[1] tracking-tighter font-display text-primary-dark"
               >
                 An engineering-led <br />
                 studio for startups <br />
@@ -125,7 +125,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-       {/* ─── Section 3: Culture & Values ─── */}
+      {/* ─── Section 3: Culture & Values ─── */}
       <section className="relative py-2 lg:py-24 bg-white">
         <div className="container-wide relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -315,7 +315,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-     
+
 
       {/* ─── Section 4: Stats ─── */}
       <section className="bg-white py-16 lg:py-16 border-y border-black/5 relative z-10">

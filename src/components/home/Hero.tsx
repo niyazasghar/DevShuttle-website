@@ -45,7 +45,7 @@ export default function Hero() {
         >
 
           {/* Tagline / Eyebrow */}
-          <motion.div variants={itemVariants} className="mb-5 sm:mb-8 md:mb-12 mt-2 sm:mt-6 md:mt-8">
+          <motion.div variants={itemVariants} className="mb-5 sm:mb-8 md:mb-12 mt-2 sm:mt-6 md:mt-10">
             <span className="inline-block text-accent font-bold tracking-[0.15em] sm:tracking-[0.25em] text-[9px] sm:text-[10px] md:text-xs uppercase px-3 sm:px-4 py-1.5 sm:py-2 bg-accent/10 border border-accent/20 rounded-full leading-normal">
               Launch-ready software for growing businesses
             </span>
@@ -54,7 +54,7 @@ export default function Hero() {
           {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-[clamp(1.75rem,7vw,5.5rem)] font-display font-bold leading-[1.1] sm:leading-[1.08] tracking-[-0.02em] sm:tracking-[-0.03em] text-white mb-5 sm:mb-8 max-w-[280px] sm:max-w-xl md:max-w-3xl lg:max-w-5xl px-1"
+            className="text-[clamp(1.75rem,7vw,5rem)] font-display font-bold leading-[1.1] sm:leading-[1.08] tracking-[-0.02em] sm:tracking-[-0.03em] text-white mb-5 sm:mb-8 max-w-[280px] sm:max-w-xl md:max-w-3xl lg:max-w-5xl px-1"
           >
             Build your next{" "}
             <br className="hidden sm:block" />

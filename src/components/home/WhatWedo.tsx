@@ -17,7 +17,7 @@ export default function WhatWedo() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 py-28 lg:py-40 overflow-hidden"
+      className="relative z-10 py-28 lg:py-24 overflow-hidden"
     >
       {/* Animated accent background — sweeps left to right */}
       <motion.div

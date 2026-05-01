@@ -16,8 +16,8 @@ const footerLinks = [
     links: [
       { name: "Solutions", href: "/solutions" },
       { name: "Process", href: "/process" },
-      { name: "Case Studies", href: "/case-studies" },
-      { name: "Blog", href: "/blog" },
+      // { name: "Case Studies", href: "/case-studies" },
+      // { name: "Blog", href: "/blog" },
     ],
   },
   {

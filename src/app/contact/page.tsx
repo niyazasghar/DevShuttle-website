@@ -1,9 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram, Terminal, ChevronDown } from "lucide-react";
 
+const PROJECT_TYPES = [
+  "Business Website",
+  "Startup Landing Page",
+  "SaaS MVP",
+  "Web Application",
+  "Admin Dashboard",
+  "Client Portal",
+  "Booking / Workflow System",
+  "App Modernization",
+  "Not Sure Yet",
+];
+
 export default function ContactPage() {
+  const [selectedProject, setSelectedProject] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
@@ -44,7 +71,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[1] tracking-tighter font-display text-primary-dark"
+                className="text-[clamp(2.5rem,7vw,4.5rem)] font-bold leading-[1] tracking-tighter font-display text-primary-dark"
               >
                 Let&apos;s build your <br />
                 next website, MVP, <br />
@@ -148,26 +175,51 @@ export default function ContactPage() {
                       </motion.div>
 
                       <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
-                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Project Type</label>
-                         <div className="relative">
-                            <select 
-                              defaultValue=""
-                              className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors w-full appearance-none pr-10 cursor-pointer"
-                            >
-                               <option value="" disabled>Select project type...</option>
-                               <option value="Business Website">Business Website</option>
-                               <option value="Startup Landing Page">Startup Landing Page</option>
-                               <option value="SaaS MVP">SaaS MVP</option>
-                               <option value="Web Application">Web Application</option>
-                               <option value="Admin Dashboard">Admin Dashboard</option>
-                               <option value="Client Portal">Client Portal</option>
-                               <option value="Booking / Workflow System">Booking / Workflow System</option>
-                               <option value="App Modernization">App Modernization</option>
-                               <option value="Not Sure Yet">Not Sure Yet</option>
-                            </select>
-                            <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-gray-400 pointer-events-none" />
-                         </div>
-                      </motion.div>
+                          <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Project Type</label>
+                          <div className="relative" ref={dropdownRef}>
+                             <button
+                               type="button"
+                               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                               className={`flex items-center justify-between w-full bg-transparent border-b py-4 text-lg transition-colors focus:outline-none cursor-pointer ${
+                                 isDropdownOpen ? "border-accent" : "border-brand-gray-200"
+                               } ${selectedProject ? "text-primary-dark" : "text-brand-gray-400"}`}
+                             >
+                               <span>{selectedProject || "Select project type..."}</span>
+                               <ChevronDown className={`w-5 h-5 text-brand-gray-400 transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                             </button>
+
+                             <AnimatePresence>
+                               {isDropdownOpen && (
+                                 <motion.ul
+                                   initial={{ opacity: 0, y: -8, scaleY: 0.95 }}
+                                   animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                                   exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
+                                   transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                   className="absolute left-0 right-0 top-full mt-2 bg-white border border-brand-gray-200 rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.08)] z-50 overflow-hidden origin-top"
+                                 >
+                                   {PROJECT_TYPES.map((type) => (
+                                     <li key={type}>
+                                       <button
+                                         type="button"
+                                         onClick={() => {
+                                           setSelectedProject(type);
+                                           setIsDropdownOpen(false);
+                                         }}
+                                         className={`w-full text-left px-5 py-3.5 text-[15px] transition-all duration-200 cursor-pointer ${
+                                           selectedProject === type
+                                             ? "bg-accent/10 text-accent font-semibold"
+                                             : "text-primary-dark hover:bg-brand-gray-100 hover:pl-7"
+                                         }`}
+                                       >
+                                         {type}
+                                       </button>
+                                     </li>
+                                   ))}
+                                 </motion.ul>
+                               )}
+                             </AnimatePresence>
+                          </div>
+                       </motion.div>
 
                       <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
                          <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Budget Range</label>

@@ -131,7 +131,7 @@ export default function SolutionsPage() {
       </motion.span>
 
       {/* ─── Hero ─── */}
-      <section className="relative pt-36 md:pt-48 pb-24 md:pb-36 overflow-hidden">
+      <section className="relative pt-24 md:pt-24 pb-24 md:pb-24 overflow-hidden">
         <div className="container-wide relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-24">
             <div className="lg:w-7/12">
@@ -147,7 +147,7 @@ export default function SolutionsPage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[1] tracking-tighter font-display text-primary-dark"
+                className="text-[clamp(2.5rem,7vw,5rem)] font-bold leading-[1] tracking-tighter font-display text-primary-dark"
               >
                 Software solutions <br />
                 for launch, growth, <br />
@@ -192,7 +192,7 @@ export default function SolutionsPage() {
 
       {/* ─── Solution Categories ─── */}
       {solutionCategories.map((category, catIdx) => (
-        <section key={catIdx} className={`py-28 lg:py-40 border-t border-black/5 ${catIdx % 2 === 0 ? 'bg-white' : 'bg-background-light'}`}>
+        <section key={catIdx} className={`py-28 lg:py-24 border-t border-black/5 ${catIdx % 2 === 0 ? 'bg-white' : 'bg-background-light'}`}>
           <div className="container-wide">
              <motion.div
                initial={{ opacity: 0, y: 30 }}
@@ -249,7 +249,7 @@ export default function SolutionsPage() {
       {/* ─── CTA — Accent Sweep ─── */}
       <section
         ref={ctaRef}
-        className="relative z-30 py-28 lg:py-40 overflow-hidden"
+        className="relative z-30 py-16 lg:py-16 overflow-hidden"
       >
         <motion.div
           className="absolute inset-0 bg-accent"

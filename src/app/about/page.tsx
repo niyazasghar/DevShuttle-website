@@ -126,7 +126,7 @@ export default function AboutPage() {
       </section>
 
       {/* ─── Section 3: Culture & Values ─── */}
-      <section className="relative py-2 lg:py-24 bg-white">
+      <section className="relative py-2 lg:py-16 bg-white">
         <div className="container-wide relative z-10">
           <div className="max-w-3xl mx-auto text-center">
 
@@ -168,7 +168,7 @@ export default function AboutPage() {
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="w-16 h-[1.5px] bg-primary-dark/15 mx-auto my-16 lg:my-20 origin-center"
+              className="w-16 h-[1.5px] bg-primary-dark/15 mx-auto my-16 lg:my-16 origin-center"
             />
 
             {/* Sub-section 2: What Drives Us */}
@@ -225,7 +225,7 @@ export default function AboutPage() {
       </section>
 
       {/* ─── Section 2: Mission Statement ─── */}
-      <section className="relative py-16 md:py-24 border-t border-black/5 overflow-hidden">
+      <section className="relative py-16 md:py-16 border-t border-black/5 overflow-hidden">
         <div className="container-wide">
           <div className="max-w-5xl">
             <motion.span
@@ -353,7 +353,7 @@ export default function AboutPage() {
       {/* ─── Section 6: CTA — Accent Sweep ─── */}
       <section
         ref={ctaRef}
-        className="relative z-30 py-28 lg:py-40 overflow-hidden"
+        className="relative z-30 py-16 lg:py-16 overflow-hidden"
       >
         {/* Animated accent background — sweeps left to right */}
         <motion.div

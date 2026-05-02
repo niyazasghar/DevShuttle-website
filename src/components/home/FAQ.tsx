@@ -39,15 +39,15 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-background-light py-16 lg:py-16 relative z-10">
+    <section className="bg-background-light py-16 lg:py-6 relative z-10">
       <div className="container-wide">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-24 text-center lg:text-left transition-all">
+          <div className="mb-16 text-center lg:text-left transition-all">
             <span className="eyebrow !text-accent/60">FAQ</span>
-            <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-display font-bold text-primary-dark leading-[1.05] tracking-tight mb-8">
+            <h2 className="text-[clamp(1.5rem,3vw,2.7rem)] font-display font-bold text-primary-dark leading-[1.05] tracking-tight mb-8">
               Clear answers for founders <br className="hidden lg:block" /> and business owners.
             </h2>
-            <p className="text-lg md:text-xl text-brand-gray-500 max-w-3xl leading-[1.8] font-light">
+            <p className="text-sm md:text-base text-brand-gray-500 max-w-3xl leading-[1.8] font-light">
                Everything you need to know about our process, pricing, timelines, technology, and support before starting your project.
             </p>
           </div>
@@ -59,9 +59,9 @@ export default function FAQ() {
                  <div key={idx} className="border-b border-brand-gray-200">
                     <button
                       onClick={() => setOpenIndex(isOpen ? null : idx)}
-                      className="w-full py-10 flex items-center justify-between text-left group gap-10"
+                      className="w-full py-6 flex items-center justify-between text-left group gap-10"
                     >
-                      <h3 className="text-2xl md:text-3xl font-display font-medium text-brand-gray-900 group-hover:text-accent transition-colors duration-300">
+                      <h3 className="text-base md:text-xl font-display font-medium text-brand-gray-900 group-hover:text-accent transition-colors duration-300">
                         {faq.question}
                       </h3>
                       <div className={`w-12 h-12 flex items-center justify-center border border-brand-gray-200 rounded-full transition-all duration-500 ${isOpen ? 'bg-accent border-accent text-white scale-110 rotate-180' : 'text-brand-gray-300 group-hover:border-brand-gray-400'}`}>
@@ -79,7 +79,7 @@ export default function FAQ() {
                           className="overflow-hidden"
                         >
                           <div className="pb-12 max-w-3xl">
-                             <p className="text-lg md:text-xl text-brand-gray-500 leading-relaxed font-light">
+                             <p className="text-sm md:text-base text-brand-gray-500 leading-relaxed font-light">
                                {faq.answer}
                              </p>
                           </div>

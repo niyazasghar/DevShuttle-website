@@ -148,7 +148,7 @@ export default function ContactPage() {
 
                    <form className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
                       <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
-                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Full Name</label>
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Full Name</label>
                          <input 
                            type="text" 
                            placeholder="Write Your Name ...." 
@@ -157,7 +157,7 @@ export default function ContactPage() {
                       </motion.div>
                       
                       <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
-                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Email Address</label>
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Email Address</label>
                          <input 
                            type="email" 
                            placeholder="example@gmail.com" 
@@ -166,7 +166,7 @@ export default function ContactPage() {
                       </motion.div>
 
                       <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
-                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Company</label>
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Company</label>
                          <input 
                            type="text" 
                            placeholder="Your Company" 
@@ -175,7 +175,7 @@ export default function ContactPage() {
                       </motion.div>
 
                       <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
-                          <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Project Type</label>
+                          <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Project Type</label>
                           <div className="relative" ref={dropdownRef}>
                              <button
                                type="button"
@@ -222,7 +222,7 @@ export default function ContactPage() {
                        </motion.div>
 
                       <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
-                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Budget Range</label>
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Budget Range</label>
                          <input 
                            type="text" 
                            placeholder="10k - 20k" 
@@ -231,7 +231,7 @@ export default function ContactPage() {
                       </motion.div>
 
                       <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
-                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Timeline</label>
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Timeline</label>
                          <input 
                            type="text" 
                            placeholder="e.g. 1-2 months" 
@@ -240,7 +240,7 @@ export default function ContactPage() {
                       </motion.div>
 
                       <motion.div variants={itemVariants} className="flex flex-col gap-3 group sm:col-span-2">
-                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Project Description</label>
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Project Description</label>
                          <textarea 
                            placeholder="Describe your vision, technical requirements, and goals." 
                            rows={4}
@@ -311,7 +311,7 @@ export default function ContactPage() {
       </section>
 
       {/* ─── Section 3: Studio Location ─── */}
-      <section className="bg-background-light py-28 lg:py-40 border-t border-black/5 relative overflow-hidden">
+      <section className="bg-background-light py-28 lg:py-16 border-t border-black/5 relative overflow-hidden">
          <div className="container-wide relative z-10 text-center">
             <span className="inline-block text-accent font-bold tracking-[0.25em] text-[10px] uppercase mb-8">Studio Location</span>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-[clamp(1.5rem,3vw,2rem)] font-display font-extrabold text-primary-dark opacity-80">

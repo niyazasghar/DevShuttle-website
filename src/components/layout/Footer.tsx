@@ -32,9 +32,9 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-background-dark border-t border-white/5 pt-32 pb-16 overflow-hidden">
+    <footer className="bg-background-dark border-t border-white/5 pt-12 pb-6 overflow-hidden">
       <div className="container-wide">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-6">
           {/* Brand Identity */}
           <div className="lg:col-span-5">
             <Link href="/" className="inline-block mb-10 group">

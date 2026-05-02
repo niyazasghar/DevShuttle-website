@@ -216,9 +216,13 @@ export default function ServicesPage() {
                       <span className="text-lg md:text-xl font-medium text-brand-gray-700 group-hover:text-primary-dark transition-colors block mb-1">
                         {service.name}
                       </span>
-                      <span className="text-sm text-brand-gray-400 group-hover:text-brand-gray-500 transition-colors">
-                        {service.outcome}
-                      </span>
+                      <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                        <div className="overflow-hidden">
+                          <span className="text-sm text-brand-gray-400 group-hover:text-brand-gray-500 block pt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 translate-y-2 group-hover:translate-y-0 transition-all">
+                            {service.outcome}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                     <div className="flex items-center justify-center w-6 h-6 rounded-full border border-transparent group-hover:border-accent/20 transition-all shrink-0 ml-4">
                       <Plus className="w-4 h-4 text-accent opacity-30 group-hover:opacity-100 transition-all transform group-hover:rotate-90" />
@@ -232,7 +236,7 @@ export default function ServicesPage() {
       </section>
 
       {/* 4. Process Section — Dark */}
-      <section className="bg-primary-dark text-white py-32 lg:py-48 relative z-30">
+      <section className="bg-primary-dark text-white py-32 lg:py-24 relative z-30">
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
 
@@ -350,12 +354,12 @@ export default function ServicesPage() {
       </section>
 
       {/* 5. Partnership Section — High End Editorial */}
-      <section className="bg-white py-32 lg:py-24 relative z-30 border-t border-black/5 overflow-hidden">
+      <section className="bg-white py-32 lg:py-24 relative z-30 border-t border-black/5">
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-start">
 
             {/* Left side: Sticky Heading & Image */}
-            <div className="lg:w-5/12 lg:sticky lg:top-40">
+            <div className="lg:w-5/12 lg:sticky lg:top-32">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -407,12 +411,12 @@ export default function ServicesPage() {
                   className="mb-24 last:mb-0 group"
                 >
                   <div className="flex items-baseline gap-6 mb-8">
-                    <span className="text-accent font-display text-3xl font-light italic opacity-50 group-hover:opacity-100 transition-opacity duration-500">0{idx + 1}</span>
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display tracking-tight text-primary-dark group-hover:text-accent transition-colors duration-500">
+                    <span className="text-accent font-display text-xl font-light italic opacity-50 group-hover:opacity-100 transition-opacity duration-500">0{idx + 1}</span>
+                    <h3 className="text-2xl md:text-3xl font-bold font-display tracking-tight text-primary-dark group-hover:text-accent transition-colors duration-500">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-brand-gray-500 text-xl lg:text-2xl leading-relaxed mb-12 max-w-xl font-light">
+                  <p className="text-brand-gray-500 text-base lg:text-lg leading-relaxed mb-12 max-w-xl font-light">
                     {item.desc}
                   </p>
                   <div className="flex flex-col gap-5">
@@ -440,7 +444,7 @@ export default function ServicesPage() {
       {/* 6. CTA Section — Accent Background Sweep */}
       <section
         ref={ctaSectionRef}
-        className="relative z-30 py-28 lg:py-40 overflow-hidden"
+        className="relative z-30 py-28 lg:py-16 overflow-hidden"
       >
         {/* Animated accent background — sweeps left to right */}
         <motion.div

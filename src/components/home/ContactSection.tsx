@@ -63,7 +63,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-background-dark py-32 lg:py-64 relative z-20 overflow-hidden">
+    <section id="contact" className="bg-background-dark py-32 lg:py-24 relative z-20 overflow-hidden">
       {/* Immersive Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent/5 blur-[200px] pointer-events-none opacity-40" />
       
@@ -129,7 +129,7 @@ export default function ContactSection() {
              
              <form onSubmit={(e) => { e.preventDefault(); handleSubmit(onSubmit)(e); }} className="flex flex-col gap-12 relative z-10">
                 <div className="flex flex-col gap-2">
-                   <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gray-600 ml-1">Full Name</label>
+                   <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-accent ml-1">Full Name</label>
                    <input
                       {...register("name")}
                       placeholder="Enter your name"
@@ -139,7 +139,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                   <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gray-600 ml-1">Email Address</label>
+                   <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-accent ml-1">Email Address</label>
                    <input
                       {...register("email")}
                       type="email"
@@ -150,7 +150,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                   <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-gray-600 ml-1">Project Details</label>
+                   <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-accent ml-1">Project Details</label>
                    <textarea
                       {...register("message")}
                       placeholder="Tell us about your project"

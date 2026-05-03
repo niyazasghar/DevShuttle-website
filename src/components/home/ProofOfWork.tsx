@@ -57,7 +57,7 @@ const projects = [
 
 export default function ProofOfWork() {
   return (
-    <section className="py-24 lg:py-24 relative z-10 bg-white">
+    <section className="py-20 lg:py-28 relative z-10 bg-white">
       <div className="container-wide flex flex-col items-center">
 
         {/* Section heading */}

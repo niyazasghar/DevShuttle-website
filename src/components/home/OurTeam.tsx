@@ -227,7 +227,7 @@ export default function OurTeam() {
   }, []);
 
   return (
-    <section className="py-16 lg:py-16 relative z-10 bg-white">
+    <section className="py-18 pt-10 pb-14 relative z-10 bg-white">
       <div className="container-wide flex flex-col items-center">
 
         {/* Section heading */}

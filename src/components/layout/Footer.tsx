@@ -16,8 +16,8 @@ const footerLinks = [
     links: [
       { name: "Solutions", href: "/solutions" },
       { name: "Process", href: "/process" },
-      { name: "Case Studies", href: "/case-studies" },
-      { name: "Blog", href: "/blog" },
+      // { name: "Case Studies", href: "/case-studies" },
+      // { name: "Blog", href: "/blog" },
     ],
   },
   {
@@ -32,9 +32,9 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-background-dark border-t border-white/5 pt-32 pb-16 overflow-hidden">
+    <footer className="bg-background-dark border-t border-white/5 pt-12 pb-6 overflow-hidden">
       <div className="container-wide">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-6">
           {/* Brand Identity */}
           <div className="lg:col-span-5">
             <Link href="/" className="inline-block mb-10 group">
@@ -44,7 +44,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-xl text-brand-gray-500 max-w-md mb-12 leading-relaxed">
-              A premium software agency building modern websites, scalable web applications, and mobile applications for startups and growing businesses.
+              DevShuttle is an engineering-led software studio building launch-ready websites, SaaS MVPs, dashboards, client portals, and custom web applications for startups and growing businesses.
             </p>
 
             <div className="flex gap-4">
@@ -87,19 +87,21 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-16 gap-8">
-          <div className="flex flex-col items-center md:items-start gap-2">
+          <div className="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
             <p className="text-xs uppercase tracking-widest text-brand-gray-600">
-              © {new Date().getFullYear()} DevShuttle Studio
+              © 2026 DevShuttle Studio. Built for launch, performance, security, and scale.
             </p>
             <p className="text-[10px] text-brand-gray-700 uppercase tracking-widest">
-              Engineering-led. Founded by IIIT Graduate Software Architect.
+              Founded by an IIIT graduate with a background in software engineering, backend development, and modern web architecture.
             </p>
           </div>
 
-          <div className="flex items-center gap-12 text-xs uppercase tracking-widest text-brand-gray-500 font-bold">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-[10px] uppercase tracking-widest text-brand-gray-500 font-bold">
+            <span className="cursor-default hover:text-white transition-colors">Launch</span>
             <span className="cursor-default hover:text-white transition-colors">Performance</span>
             <span className="cursor-default hover:text-white transition-colors">Security</span>
-            <span className="cursor-default hover:text-white transition-colors">Scale</span>
+            <span className="cursor-default hover:text-white transition-colors">Scalability</span>
+            <span className="cursor-default hover:text-white transition-colors hidden lg:inline">Product Engineering</span>
           </div>
         </div>
       </div>

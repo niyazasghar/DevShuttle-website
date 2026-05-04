@@ -1,5 +1,9 @@
-import { ArrowRight, Code, Terminal, Cpu, Database, Cloud, Shield, Zap } from "lucide-react";
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Terminal, Database, Cloud, Shield } from "lucide-react";
 import Link from "next/link";
+import { useRef } from "react";
 
 const techPillars = [
   {
@@ -29,80 +33,369 @@ const techPillars = [
 ];
 
 export default function CustomDevelopmentPage() {
+  const ctaRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: ctaProgress } = useScroll({
+    target: ctaRef,
+    offset: ["start end", "start 0.3"],
+  });
+  const ctaBgScaleX = useTransform(ctaProgress, [0, 0.6], [0, 1]);
+  const ctaBgOpacity = useTransform(ctaProgress, [0, 0.3], [0, 1]);
+
   return (
-    <div className="bg-background-dark min-h-screen pt-40 lg:pt-56 overflow-hidden">
-      <section className="container-wide mb-32 lg:mb-56 relative z-10">
-        <div className="max-w-4xl">
-          <span className="eyebrow">Custom Engineering</span>
-          <h1 className="text-hero text-white mb-10 leading-[0.95]">
-            Technical depth <br />
-            for unique <br />
-            <span className="text-brand-gray-700">software challenges.</span>
-          </h1>
-          <p className="text-xl md:text-3xl text-brand-gray-400 font-light leading-relaxed text-balance">
-            We don't do templates. We engineer custom software solutions from the ground up, designed to meet your specific business logic and performance requirements.
-          </p>
+    <div className="bg-background-light min-h-screen text-primary-dark [overflow-x:clip] relative">
+
+      {/* Fixed vertical side text */}
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.15 }}
+        transition={{ duration: 1, delay: 0.6 }}
+        className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 text-primary-dark text-[10px] font-bold tracking-[0.3em] uppercase [writing-mode:vertical-rl] rotate-180 pointer-events-none z-40"
+      >
+        Custom Engineering
+      </motion.span>
+
+      {/* ─── Section 1: Hero ─── */}
+      <section className="relative pt-36 md:pt-20 pb-24 md:pb-10 overflow-hidden">
+        <div className="container-wide">
+          <div className="flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-24">
+            {/* Left: Eyebrow + Heading */}
+            <div className="lg:w-7/12">
+              <motion.span
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="inline-block text-accent font-bold tracking-[0.25em] text-[10px] uppercase mb-8"
+              >
+                Custom Engineering
+              </motion.span>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[clamp(2.5rem,7vw,4.6rem)] font-bold leading-[1] tracking-tighter font-display text-primary-dark"
+              >
+                Technical depth <br />
+                for unique <br />
+                software challenges.
+              </motion.h1>
+            </div>
+
+            {/* Right: Description */}
+            <div className="lg:w-5/12">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="text-brand-gray-500 text-base md:text-lg leading-relaxed max-w-sm"
+              >
+                We don&apos;t do templates. We engineer custom software solutions from the ground up, designed to meet your specific business logic and performance requirements.
+              </motion.p>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="w-12 h-[2px] bg-primary-dark/20 mt-6 origin-left"
+              />
+            </div>
+          </div>
         </div>
-        
-        {/* Subtle Background Art */}
-        <div className="absolute top-0 right-[-10%] opacity-10 pointer-events-none">
-           <Cpu className="w-[500px] h-[500px] text-white" />
-        </div>
+
+        {/* Decorative dot grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.08 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="absolute top-16 right-16 z-0 pointer-events-none"
+        >
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            {Array.from({ length: 100 }).map((_, i) => {
+              const row = Math.floor(i / 10);
+              const col = i % 10;
+              return <circle key={i} cx={col * 12 + 6} cy={row * 12 + 6} r="1.5" fill="currentColor" />;
+            })}
+          </svg>
+        </motion.div>
+
+        {/* Decorative arc */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.06 }}
+          transition={{ duration: 1.5, delay: 0.3 }}
+          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] pointer-events-none"
+        >
+          <svg viewBox="0 0 500 500" fill="none" className="w-full h-full">
+            <circle cx="250" cy="250" r="240" stroke="currentColor" strokeWidth="1" />
+          </svg>
+        </motion.div>
       </section>
 
-      {/* Pillars of Engineering */}
-      <section className="bg-background-surface py-32 lg:py-56 relative z-10 border-t border-white/5">
+      {/* ─── Section 2: Technical Pillars ─── */}
+      <section className="relative py-16 lg:py-24 bg-white border-t border-black/5">
         <div className="container-wide">
-          <div className="text-center mb-24 lg:mb-40">
-             <h2 className="text-section-title text-white mb-8">Our Technical Pillars</h2>
-             <p className="text-brand-gray-500 text-lg md:text-xl font-light max-w-2xl mx-auto">
-                Built by software architects with Computer Science backgrounds from top institutes. We bring academic precision to commercial software.
-             </p>
+          <div className="text-center mb-16 lg:mb-24">
+            <motion.span
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-block text-primary-dark/40 font-bold tracking-[0.25em] text-[10px] uppercase mb-6"
+            >
+              Our Stack
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-[clamp(1.6rem,4vw,2.5rem)] font-extrabold leading-[1.15] tracking-tight font-display text-primary-dark mb-6"
+            >
+              Our Technical Pillars
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-brand-gray-500 text-[15px] md:text-base leading-[1.85] max-w-2xl mx-auto"
+            >
+              Built by software architects with Computer Science backgrounds from top institutes. We bring academic precision to commercial software.
+            </motion.p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-             {techPillars.map((pillar, i) => (
-               <div key={i} className="group p-10 bg-white/[0.02] border border-white/5 rounded-sm hover:border-accent/40 transition-all duration-700">
-                  <div className="w-14 h-14 flex items-center justify-center bg-accent/5 border border-accent/10 rounded-xl mb-10 group-hover:bg-accent group-hover:text-white transition-all duration-700">
-                     <pillar.icon className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="text-2xl font-display font-bold text-white mb-6">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-brand-gray-500 leading-relaxed font-light mb-10 text-sm">
-                    {pillar.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                     {pillar.techs.map(t => (
-                       <span key={t} className="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase tracking-widest text-brand-gray-600 font-bold border border-white/5">
-                         {t}
-                       </span>
-                     ))}
-                  </div>
-               </div>
-             ))}
+            {techPillars.map((pillar, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="group p-10 bg-background-light border border-black/5 rounded-sm hover:border-accent/40 transition-all duration-700"
+              >
+                <div className="w-14 h-14 flex items-center justify-center bg-accent/5 border border-accent/10 rounded-xl mb-10 group-hover:bg-accent group-hover:text-white transition-all duration-700">
+                  <pillar.icon className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-display font-bold text-primary-dark mb-6">
+                  {pillar.title}
+                </h3>
+                <p className="text-brand-gray-500 leading-relaxed font-light mb-10 text-sm">
+                  {pillar.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {pillar.techs.map(t => (
+                    <span key={t} className="px-3 py-1 bg-primary-dark/[0.04] rounded-full text-[10px] uppercase tracking-widest text-brand-gray-500 font-bold border border-black/5">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
+
+        {/* Decorative dot grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.06 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="absolute top-16 right-20 z-0 pointer-events-none"
+        >
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            {Array.from({ length: 36 }).map((_, i) => {
+              const row = Math.floor(i / 6);
+              const col = i % 6;
+              return <circle key={i} cx={col * 14 + 7} cy={row * 14 + 7} r="1.5" fill="currentColor" />;
+            })}
+          </svg>
+        </motion.div>
       </section>
 
-      {/* Case Specific Positioning */}
-      <section className="bg-background-dark py-32 lg:py-48 flex flex-col items-center text-center">
-         <div className="container-wide">
-            <span className="eyebrow !mb-10 text-accent/50">Tailored Solutions</span>
-            <h2 className="text-section-title text-white mb-16 max-w-4xl mx-auto !leading-tight">
-               Built for performance, <br />
-               Architected for <span className="text-accent underline underline-offset-8">Growth</span>.
-            </h2>
-            
-            <p className="text-xl text-brand-gray-500 font-light max-w-3xl mx-auto mb-24 leading-relaxed">
-               Whether it's a legacy rewrite, a custom API platform, or a complex dashboard, we bring senior engineering expertise to every line of code.
-            </p>
-            
-            <Link href="/contact" className="btn-premium py-6 px-16 group mx-auto w-fit">
-               <span>Discuss Your Vision</span>
-               <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
-            </Link>
-         </div>
+      {/* ─── Section 3: Tailored Solutions ─── */}
+      <section className="relative py-16 md:py-24 border-t border-black/5 overflow-hidden">
+        <div className="container-wide">
+          <div className="max-w-5xl">
+            <motion.span
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-block text-primary-dark/40 font-bold tracking-[0.25em] text-[10px] uppercase mb-8"
+            >
+              Tailored Solutions
+            </motion.span>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight font-display text-primary-dark mb-8"
+            >
+              Built for performance, <br className="hidden md:block" />
+              Architected for Growth.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-brand-gray-500 text-[15px] md:text-base leading-[1.85] max-w-3xl mb-14"
+            >
+              Whether it&apos;s a legacy rewrite, a custom API platform, or a complex dashboard, we bring senior engineering expertise to every line of code.
+            </motion.p>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Link
+                href="/contact"
+                className="group relative inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-xs font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] transition-transform duration-300 bg-primary-dark"
+              >
+                <span className="absolute inset-0 bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
+                <span className="relative z-10 text-white">Discuss Your Vision</span>
+                <svg className="relative z-10 w-3.5 h-3.5 text-white group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Decorative dot grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.06 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="absolute top-10 right-24 z-0 pointer-events-none"
+        >
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            {Array.from({ length: 64 }).map((_, i) => {
+              const row = Math.floor(i / 8);
+              const col = i % 8;
+              return <circle key={i} cx={col * 12 + 6} cy={row * 12 + 6} r="1.5" fill="currentColor" />;
+            })}
+          </svg>
+        </motion.div>
+
+        {/* Decorative arc */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.04 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, delay: 0.3 }}
+          className="absolute -bottom-48 right-0 w-[600px] h-[600px] pointer-events-none"
+        >
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full">
+            <circle cx="300" cy="300" r="290" stroke="currentColor" strokeWidth="1" />
+          </svg>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.2 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="hidden lg:flex absolute right-8 bottom-12 flex-col items-center gap-3 pointer-events-none"
+        >
+          <div className="w-[1px] h-8 bg-primary-dark/30" />
+          <span className="text-[9px] font-bold tracking-[0.3em] uppercase text-primary-dark/40 [writing-mode:vertical-rl]">Scroll</span>
+        </motion.div>
+      </section>
+
+      {/* ─── Section 4: CTA — Accent Sweep ─── */}
+      <section
+        ref={ctaRef}
+        className="relative z-30 py-16 lg:py-16 overflow-hidden"
+      >
+        {/* Animated accent background — sweeps left to right */}
+        <motion.div
+          className="absolute inset-0 bg-accent"
+          style={{
+            scaleX: ctaBgScaleX,
+            opacity: ctaBgOpacity,
+            transformOrigin: "left center",
+          }}
+        />
+
+        {/* Content */}
+        <div className="container-wide max-w-6xl relative z-10">
+          <div className="max-w-5xl mx-auto lg:mx-0">
+            {/* Eyebrow */}
+            <motion.span
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-block text-eyebrow uppercase tracking-[0.25em] text-white/70 mb-8"
+            >
+              Work With Us
+            </motion.span>
+
+            {/* Main text */}
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-display font-bold text-white leading-snug tracking-[-0.01em] mb-12"
+            >
+              Have a custom software <br className="hidden md:block" />
+              challenge in mind?
+            </motion.p>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Link
+                href="/contact"
+                className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-full text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] transition-transform duration-300 border border-white/20"
+              >
+                <span className="absolute inset-0 bg-white/[0.08] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
+                <span className="relative z-10 text-white">Let&apos;s Build It Right</span>
+                <svg className="relative z-10 w-4 h-4 text-white group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Decorative dot grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.15 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="absolute top-8 right-8 lg:top-12 lg:right-12 z-10 pointer-events-none"
+        >
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            {Array.from({ length: 100 }).map((_, i) => {
+              const row = Math.floor(i / 10);
+              const col = i % 10;
+              return <circle key={i} cx={col * 12 + 6} cy={row * 12 + 6} r="1.5" fill="white" />;
+            })}
+          </svg>
+        </motion.div>
+
+        {/* Decorative arc */}
+        <div className="absolute -bottom-32 right-16 w-[400px] h-[400px] pointer-events-none opacity-10">
+          <svg viewBox="0 0 400 400" fill="none" className="w-full h-full">
+            <circle cx="200" cy="200" r="190" stroke="white" strokeWidth="1" />
+          </svg>
+        </div>
       </section>
     </div>
   );

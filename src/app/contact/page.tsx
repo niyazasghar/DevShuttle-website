@@ -1,9 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram, Terminal, MessageSquare } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram, Terminal, ChevronDown } from "lucide-react";
+
+const PROJECT_TYPES = [
+  "Business Website",
+  "Startup Landing Page",
+  "SaaS MVP",
+  "Web Application",
+  "Admin Dashboard",
+  "Client Portal",
+  "Booking / Workflow System",
+  "App Modernization",
+  "Not Sure Yet",
+];
 
 export default function ContactPage() {
+  const [selectedProject, setSelectedProject] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
@@ -15,147 +42,281 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-background-dark min-h-screen pt-40 lg:pt-56 overflow-hidden">
-      <section className="container-wide mb-32 lg:mb-56 relative z-10">
-        <div className="max-w-4xl">
-          <span className="eyebrow">Get in touch</span>
-          <h1 className="text-hero text-white mb-10 leading-[0.95]">
-            Let's build <br />
-            your technical <br />
-            <span className="text-brand-gray-700">future together.</span>
-          </h1>
-          <p className="text-xl md:text-3xl text-brand-gray-400 font-light leading-relaxed text-balance">
-            Whether you're starting from scratch or scaling an existing product, our engineering team is ready to help you navigate your technical challenge.
-          </p>
-        </div>
-      </section>
+    <div className="bg-background-light min-h-screen text-primary-dark [overflow-x:clip] relative">
+      
+      {/* Fixed vertical side text */}
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.15 }}
+        transition={{ duration: 1, delay: 0.6 }}
+        className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 text-primary-dark text-[10px] font-bold tracking-[0.3em] uppercase [writing-mode:vertical-rl] rotate-180 pointer-events-none z-40"
+      >
+        Contact Us
+      </motion.span>
 
-      {/* Contact Form & Info Grid */}
-      <section className="bg-background-light py-32 lg:py-56 border-t border-brand-gray-200 relative z-10">
-        <div className="container-wide grid grid-cols-1 lg:grid-cols-12 gap-24 lg:gap-32">
-           
-           {/* Form Column */}
-           <div className="lg:col-span-7">
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="max-w-3xl"
+      {/* ─── Section 1: Hero ─── */}
+      <section className="relative pt-36 md:pt-20 pb-24 md:pb-10 overflow-hidden">
+        <div className="container-wide relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-24">
+            <div className="lg:w-7/12">
+              <motion.span
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="inline-block text-accent font-bold tracking-[0.25em] text-[10px] uppercase mb-8"
               >
-                 <motion.div variants={itemVariants} className="mb-16">
-                    <h2 className="text-4xl lg:text-5xl font-display font-bold text-brand-gray-900 mb-6">
-                      Tell us about your project.
-                    </h2>
-                    <p className="text-lg text-brand-gray-500 font-light leading-relaxed">
-                       Please fill out the form below and we'll get back to you within 24 hours to schedule a deep-dive call into your requirements.
-                    </p>
-                 </motion.div>
+                Get in touch
+              </motion.span>
+              <motion.h1
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[clamp(2.5rem,7vw,4.5rem)] font-bold leading-[1] tracking-tighter font-display text-primary-dark"
+              >
+                Let&apos;s build your <br />
+                next website, MVP, <br />
+                dashboard, or <br />
+                custom platform.
+              </motion.h1>
+            </div>
+            <div className="lg:w-5/12">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="text-brand-gray-500 text-base md:text-lg leading-relaxed max-w-sm"
+              >
+                Whether you are launching a startup, rebuilding an old system, or creating a custom business tool, DevShuttle can help you plan and build the right technical solution.
+              </motion.p>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="w-12 h-[2px] bg-primary-dark/20 mt-6 origin-left"
+              />
+            </div>
+          </div>
+        </div>
 
-                 <form className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
-                    <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
-                       <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Full Name</label>
-                       <input 
-                         type="text" 
-                         placeholder="John Doe" 
-                         className="bg-transparent border-b border-brand-gray-200 py-4 text-brand-gray-900 text-lg focus:outline-none focus:border-accent transition-colors"
-                       />
-                    </motion.div>
-                    
-                    <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
-                       <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Email Address</label>
-                       <input 
-                         type="email" 
-                         placeholder="john@example.com" 
-                         className="bg-transparent border-b border-brand-gray-200 py-4 text-brand-gray-900 text-lg focus:outline-none focus:border-accent transition-colors"
-                       />
-                    </motion.div>
+        {/* Decorative dot grid — top right */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.08 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="absolute top-16 right-16 z-0 pointer-events-none"
+        >
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            {Array.from({ length: 100 }).map((_, i) => {
+              const row = Math.floor(i / 10);
+              const col = i % 10;
+              return (
+                <circle
+                  key={i}
+                  cx={col * 12 + 6}
+                  cy={row * 12 + 6}
+                  r="1.5"
+                  fill="currentColor"
+                />
+              );
+            })}
+          </svg>
+        </motion.div>
+      </section>
 
-                    <motion.div variants={itemVariants} className="flex flex-col gap-3 group sm:col-span-2">
-                       <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Estimated Project Budget</label>
-                       <input 
-                         type="text" 
-                         placeholder="$10k - $20k" 
-                         className="bg-transparent border-b border-brand-gray-200 py-4 text-brand-gray-900 text-lg focus:outline-none focus:border-accent transition-colors"
-                       />
-                    </motion.div>
+      {/* ─── Section 2: Contact Form & Info Grid ─── */}
+      <section className="bg-white py-6 lg:py-20 border-t border-black/5 relative z-10">
+        <div className="container-wide">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+             
+             {/* Form Column */}
+             <div className="lg:col-span-7">
+                <motion.div
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="max-w-3xl"
+                >
+                   <motion.div variants={itemVariants} className="mb-16">
+                      <h2 className="text-4xl lg:text-5xl font-display font-bold text-primary-dark mb-6 tracking-tight">
+                        Tell us about your project.
+                      </h2>
+                      <p className="text-brand-gray-500 text-[15px] md:text-base leading-[1.85]">
+                         Share what you want to build, what problem you are trying to solve, and where you are in the process. We will help you understand the right next step.
+                      </p>
+                   </motion.div>
 
-                    <motion.div variants={itemVariants} className="flex flex-col gap-3 group sm:col-span-2">
-                       <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-brand-gray-400 transition-colors group-hover:text-accent">Project Details</label>
-                       <textarea 
-                         placeholder="Describe your vision, tech stack requirements, and goals." 
-                         rows={4}
-                         className="bg-transparent border-b border-brand-gray-200 py-4 text-brand-gray-900 text-lg focus:outline-none focus:border-accent transition-colors resize-none"
-                       />
-                    </motion.div>
-                    
-                    <motion.div variants={itemVariants} className="sm:col-span-2 pt-10">
-                       <button className="btn-premium w-full py-6 text-lg group !text-white bg-brand-gray-900 hover:bg-accent transition-all duration-500">
-                          <span>Send Inquiry</span>
-                          <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
-                       </button>
-                    </motion.div>
-                 </form>
-              </motion.div>
-           </div>
-           
-           {/* Sidebar Info Column */}
-           <div className="lg:col-span-5 flex flex-col gap-24 lg:pt-16">
-              <div className="flex flex-col gap-12">
-                 <h3 className="text-[10px] uppercase font-bold tracking-[0.4em] text-brand-gray-400">Direct Contact</h3>
-                 <div className="flex flex-col gap-8">
-                    <a href="mailto:hello@devshuttle.com" className="group flex items-center gap-6 text-2xl lg:text-3xl font-display font-medium text-brand-gray-900">
-                       <div className="w-12 h-12 flex items-center justify-center border border-brand-gray-200 rounded-full group-hover:bg-accent group-hover:border-accent transition-all duration-300">
-                          <Mail className="w-5 h-5 group-hover:text-white" />
-                       </div>
-                       <span className="hover-line">hello@devshuttle.com</span>
-                    </a>
-                    
-                    <a href="tel:+1234567890" className="group flex items-center gap-6 text-2xl lg:text-3xl font-display font-medium text-brand-gray-900">
-                       <div className="w-12 h-12 flex items-center justify-center border border-brand-gray-200 rounded-full group-hover:bg-accent group-hover:border-accent transition-all duration-300">
-                          <Phone className="w-5 h-5 group-hover:text-white" />
-                       </div>
-                       <span className="hover-line">+91 (India) Head Office</span>
-                    </a>
-                 </div>
-              </div>
+                   <form className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
+                      <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Full Name</label>
+                         <input 
+                           type="text" 
+                           placeholder="Write Your Name ...." 
+                           className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors w-full"
+                         />
+                      </motion.div>
+                      
+                      <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Email Address</label>
+                         <input 
+                           type="email" 
+                           placeholder="example@gmail.com" 
+                           className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors w-full"
+                         />
+                      </motion.div>
 
-              <div className="flex flex-col gap-12">
-                 <h3 className="text-[10px] uppercase font-bold tracking-[0.4em] text-brand-gray-400">Social Connect</h3>
-                 <div className="flex flex-wrap gap-4">
-                    {[Twitter, Linkedin, Github, Instagram].map((Icon, i) => (
-                      <a 
-                        key={i} 
-                        href="#" 
-                        className="w-14 h-14 flex items-center justify-center border border-brand-gray-200 rounded-full hover:bg-accent hover:border-accent text-brand-gray-500 hover:text-white transition-all duration-500 hover:scale-110"
-                      >
-                         <Icon className="w-6 h-6" />
+                      <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Company</label>
+                         <input 
+                           type="text" 
+                           placeholder="Your Company" 
+                           className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors w-full"
+                         />
+                      </motion.div>
+
+                      <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
+                          <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Project Type</label>
+                          <div className="relative" ref={dropdownRef}>
+                             <button
+                               type="button"
+                               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                               className={`flex items-center justify-between w-full bg-transparent border-b py-4 text-lg transition-colors focus:outline-none cursor-pointer ${
+                                 isDropdownOpen ? "border-accent" : "border-brand-gray-200"
+                               } ${selectedProject ? "text-primary-dark" : "text-brand-gray-400"}`}
+                             >
+                               <span>{selectedProject || "Select project type..."}</span>
+                               <ChevronDown className={`w-5 h-5 text-brand-gray-400 transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                             </button>
+
+                             <AnimatePresence>
+                               {isDropdownOpen && (
+                                 <motion.ul
+                                   initial={{ opacity: 0, y: -8, scaleY: 0.95 }}
+                                   animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                                   exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
+                                   transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                   className="absolute left-0 right-0 top-full mt-2 bg-white border border-brand-gray-200 rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.08)] z-50 overflow-hidden origin-top"
+                                 >
+                                   {PROJECT_TYPES.map((type) => (
+                                     <li key={type}>
+                                       <button
+                                         type="button"
+                                         onClick={() => {
+                                           setSelectedProject(type);
+                                           setIsDropdownOpen(false);
+                                         }}
+                                         className={`w-full text-left px-5 py-3.5 text-[15px] transition-all duration-200 cursor-pointer ${
+                                           selectedProject === type
+                                             ? "bg-accent/10 text-accent font-semibold"
+                                             : "text-primary-dark hover:bg-brand-gray-100 hover:pl-7"
+                                         }`}
+                                       >
+                                         {type}
+                                       </button>
+                                     </li>
+                                   ))}
+                                 </motion.ul>
+                               )}
+                             </AnimatePresence>
+                          </div>
+                       </motion.div>
+
+                      <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Budget Range</label>
+                         <input 
+                           type="text" 
+                           placeholder="10k - 20k" 
+                           className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors w-full"
+                         />
+                      </motion.div>
+
+                      <motion.div variants={itemVariants} className="flex flex-col gap-3 group">
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Timeline</label>
+                         <input 
+                           type="text" 
+                           placeholder="e.g. 1-2 months" 
+                           className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors w-full"
+                         />
+                      </motion.div>
+
+                      <motion.div variants={itemVariants} className="flex flex-col gap-3 group sm:col-span-2">
+                         <label className="text-[10px] uppercase font-bold tracking-[0.3em] text-accent transition-colors group-hover:text-accent">Project Description</label>
+                         <textarea 
+                           placeholder="Describe your vision, technical requirements, and goals." 
+                           rows={4}
+                           className="bg-transparent border-b border-brand-gray-200 py-4 text-primary-dark text-lg focus:outline-none focus:border-accent transition-colors resize-none w-full"
+                         />
+                      </motion.div>
+                      
+                      <motion.div variants={itemVariants} className="sm:col-span-2 pt-10">
+                         <button className="group relative inline-flex items-center justify-center gap-3 w-full py-5 rounded-full text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] transition-transform duration-300 bg-primary-dark">
+                            <span className="absolute inset-0 bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
+                            <span className="relative z-10 text-white">Start Your Project</span>
+                            <ArrowRight className="relative z-10 w-5 h-5 text-white group-hover:translate-x-2 transition-transform duration-300" />
+                         </button>
+                      </motion.div>
+                   </form>
+                </motion.div>
+             </div>
+             
+             {/* Sidebar Info Column */}
+             <div className="lg:col-span-5 flex flex-col gap-20 lg:pt-4">
+                <div className="flex flex-col gap-10">
+                   <h3 className="text-[10px] uppercase font-bold tracking-[0.4em] text-brand-gray-400">Direct Contact</h3>
+                   <div className="flex flex-col gap-6">
+                      <a href="mailto:hello@devshuttle.com" className="group flex items-center gap-6 text-xl lg:text-2xl font-display font-medium text-primary-dark">
+                         <div className="w-12 h-12 flex items-center justify-center border border-brand-gray-200 rounded-full group-hover:bg-accent group-hover:border-accent transition-all duration-300 shrink-0">
+                            <Mail className="w-5 h-5 text-primary-dark group-hover:text-white transition-colors" />
+                         </div>
+                         <span className="hover-line">hello@devshuttle.com</span>
                       </a>
-                    ))}
-                 </div>
-              </div>
-              
-              <div className="p-10 bg-brand-gray-100 rounded-sm border border-brand-gray-100 mt-auto">
-                 <div className="w-10 h-10 flex items-center justify-center bg-accent/20 border border-accent/20 rounded-lg mb-6">
-                    <Terminal className="w-5 h-5 text-accent" />
-                 </div>
-                 <h4 className="text-xl font-bold text-brand-gray-900 mb-4 uppercase tracking-tighter">Engineering Led</h4>
-                 <p className="text-brand-gray-500 text-sm font-light leading-relaxed">
-                    Directed by senior software architects with computer science backgrounds. We handle the mission-critical technical layer of your brand.
-                 </p>
-              </div>
-           </div>
+                      
+                      <a href="mailto:niyazasghar12@gmail.com" className="group flex items-center gap-6 text-xl lg:text-2xl font-display font-medium text-primary-dark break-all">
+                         <div className="w-12 h-12 flex items-center justify-center border border-brand-gray-200 rounded-full group-hover:bg-accent group-hover:border-accent transition-all duration-300 shrink-0">
+                            <Mail className="w-5 h-5 text-primary-dark group-hover:text-white transition-colors" />
+                         </div>
+                         <span className="hover-line">niyazasghar12@gmail.com</span>
+                      </a>
+                   </div>
+                </div>
 
+                <div className="flex flex-col gap-10">
+                   <h3 className="text-[10px] uppercase font-bold tracking-[0.4em] text-brand-gray-400">Social Connect</h3>
+                   <div className="flex flex-wrap gap-4">
+                      {[Twitter, Linkedin, Github, Instagram].map((Icon, i) => (
+                        <a 
+                          key={i} 
+                          href="#" 
+                          className="w-14 h-14 flex items-center justify-center border border-brand-gray-200 rounded-full hover:bg-accent hover:border-accent text-brand-gray-500 hover:text-white transition-all duration-500 hover:scale-110"
+                        >
+                           <Icon className="w-5 h-5" />
+                        </a>
+                      ))}
+                   </div>
+                </div>
+                
+                <div className="p-10 bg-brand-gray-100 rounded-sm border border-brand-gray-200 mt-auto">
+                   <div className="w-10 h-10 flex items-center justify-center bg-accent/10 border border-accent/20 rounded-lg mb-6">
+                      <Terminal className="w-5 h-5 text-accent" />
+                   </div>
+                   <h4 className="text-xl font-bold text-primary-dark mb-4 uppercase tracking-tighter">Engineering-led from planning to deployment.</h4>
+                   <p className="text-brand-gray-500 text-[15px] leading-[1.85]">
+                      DevShuttle helps founders and growing businesses handle the technical layer of their digital product, from product planning and architecture to development, deployment, and post-launch support.
+                   </p>
+                </div>
+             </div>
+
+          </div>
         </div>
       </section>
 
-      {/* Map or Placeholder Grid Section */}
-      <section className="bg-background-dark py-32 lg:py-48 flex justify-center items-center text-center">
-         <div className="container-wide">
-            <span className="eyebrow !mb-10 text-brand-gray-700">Studio Location</span>
-            <div className="flex items-center justify-center gap-6 text-2xl md:text-4xl font-display font-extrabold text-white opacity-40 hover:opacity-100 transition-opacity duration-1000">
-               <MapPin className="w-10 h-10 text-accent/60" />
-               <span>REMOTE WORLDWIDE · HEADQUARTERS IN INDIA</span>
+      {/* ─── Section 3: Studio Location ─── */}
+      <section className="bg-background-light py-28 lg:py-16 border-t border-black/5 relative overflow-hidden">
+         <div className="container-wide relative z-10 text-center">
+            <span className="inline-block text-accent font-bold tracking-[0.25em] text-[10px] uppercase mb-8">Studio Location</span>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-[clamp(1.5rem,3vw,2rem)] font-display font-extrabold text-primary-dark opacity-80">
+               <MapPin className="w-8 h-8 text-accent shrink-0" />
+               <span>REMOTE WORLDWIDE, HEADQUARTERED IN INDIA</span>
             </div>
          </div>
       </section>

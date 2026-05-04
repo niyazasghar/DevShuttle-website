@@ -29,102 +29,92 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen mt-8 sm:mt-10 md:mt-14 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] mt-6 sm:mt-10 md:mt-14 flex items-center justify-center overflow-hidden">
       {/* Subtle background glow effects */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        <div className="absolute top-1/4 -left-[10%] w-[80%] h-[80%] bg-accent/5 rounded-full blur-[180px] animate-pulse duration-[10s]" />
-        <div className="absolute bottom-[10%] -right-[5%] w-[60%] h-[60%] bg-white/5 rounded-full blur-[160px]" />
+        <div className="absolute top-1/4 -left-[10%] w-[80%] h-[80%] bg-accent/5 rounded-full blur-[100px] sm:blur-[180px] animate-pulse duration-[10s]" />
+        <div className="absolute bottom-[10%] -right-[5%] w-[60%] h-[60%] bg-white/5 rounded-full blur-[80px] sm:blur-[160px]" />
       </div>
 
-      <div className="relative z-10 w-full flex flex-col items-center text-center px-4 sm:px-6">
+      <div className="relative z-10 w-full flex flex-col items-center text-center px-5 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center"
+          className="flex flex-col items-center w-full"
         >
 
-          {/* Large Tagline Text */}
-          <motion.div variants={itemVariants} className="mb-6 sm:mb-8 md:mb-12 mt-4 sm:mt-6 md:mt-8">
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-brand-gray-400 font-light leading-relaxed max-w-xs sm:max-w-lg md:max-w-2xl text-balance">
-              We help startups and growing businesses launch high-performance websites, SaaS MVPs, dashboards, and client-facing platforms.
-            </p>
+          {/* Tagline / Eyebrow */}
+          <motion.div variants={itemVariants} className="mb-5 sm:mb-8 md:mb-12 mt-2 sm:mt-6 md:mt-10">
+            <span className="inline-block text-accent font-bold tracking-[0.15em] sm:tracking-[0.25em] text-[9px] sm:text-[10px] md:text-xs uppercase px-3 sm:px-4 py-1.5 sm:py-2 bg-accent/10 border border-accent/20 rounded-full leading-normal">
+              Launch-ready software for growing businesses
+            </span>
           </motion.div>
 
           {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-[clamp(2rem,6vw,5.5rem)] font-display font-bold leading-[1.08] tracking-[-0.03em] text-white mb-8 sm:mb-10 md:mb-14 max-w-xs sm:max-w-xl md:max-w-5xl"
+            className="text-[clamp(1.75rem,7vw,5rem)] font-display font-bold leading-[1.1] sm:leading-[1.08] tracking-[-0.02em] sm:tracking-[-0.03em] text-white mb-5 sm:mb-8 max-w-[280px] sm:max-w-xl md:max-w-3xl lg:max-w-5xl px-1"
           >
-            Build your Product{" "}
+            Build your next{" "}
             <br className="hidden sm:block" />
-            with <span className="text-accent">DevShuttle</span>
+            digital product with{" "}
+            <span className="text-accent">DevShuttle</span>.
           </motion.h1>
+
+          {/* Subheading */}
+          <motion.div variants={itemVariants} className="mb-8 sm:mb-12 md:mb-14">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-brand-gray-400 font-light leading-relaxed max-w-[300px] sm:max-w-lg md:max-w-2xl lg:max-w-3xl text-balance mx-auto">
+              We help founders and growing teams turn ideas, workflows, and business problems into high-performance websites, SaaS MVPs, client portals, admin dashboards, and custom web applications.
+            </p>
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-5 items-center mb-10 sm:mb-12 md:mb-16 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-5 items-center mb-8 sm:mb-12 md:mb-16 w-full max-w-sm sm:max-w-none sm:w-auto px-2 sm:px-0"
           >
             <Link
-              href="/services"
-              className="group relative px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] w-full sm:w-auto sm:min-w-[200px] text-center transition-transform duration-300"
+              href="/contact"
+              className="group relative px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] w-full sm:w-auto sm:min-w-[200px] text-center transition-transform duration-300 bg-accent text-primary-dark"
             >
-              <span className="absolute inset-0 bg-white/[0.08] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
-              <span className="relative z-10 text-white">Let&apos;s Explore</span>
+              <span className="absolute inset-0 bg-white/20 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
+              <span className="relative z-10">Start Your Project</span>
             </Link>
 
             <Link
-              href="/contact"
-              className="group relative px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] w-full sm:w-auto sm:min-w-[200px] text-center transition-transform duration-300"
+              href="/services"
+              className="group relative px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] w-full sm:w-auto sm:min-w-[200px] text-center transition-transform duration-300 border border-white/20 hover:border-white/40"
             >
               <span className="absolute inset-0 bg-white/[0.08] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
-              <span className="relative z-10 text-white">Contact Us</span>
+              <span className="relative z-10 text-white">Explore Services</span>
             </Link>
           </motion.div>
 
           {/* Trust Indicator */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-3 sm:gap-4"
+            className="flex items-center justify-center w-full px-4"
           >
-            {/* Avatar stack */}
-            <div className="flex -space-x-2.5 sm:-space-x-3">
-              {[
-                "bg-gradient-to-br from-accent to-orange-400",
-                "bg-gradient-to-br from-blue-500 to-cyan-400",
-                "bg-gradient-to-br from-purple-500 to-pink-400",
-              ].map((bg, i) => (
-                <div
-                  key={i}
-                  className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full ${bg} border-2 border-background-dark flex items-center justify-center text-[8px] sm:text-[10px] font-bold text-white`}
-                >
-                  {["N", "A", "S"][i]}
-                </div>
-              ))}
-            </div>
-
-            <p className="text-xs sm:text-sm text-brand-gray-400 font-medium">
-              Trusted by{" "}
-              <span className="text-accent font-bold">20+</span>{" "}
-              Startups &amp; Brands
+            <p className="text-[11px] sm:text-xs md:text-sm text-brand-gray-400 font-medium tracking-wide">
+              Engineering-led studio based in <span className="text-white">India</span>, serving clients <span className="text-white">globally</span>.
             </p>
           </motion.div>
 
           {/* Brand Marquee */}
           <motion.div
             variants={itemVariants}
-            className="w-screen mt-12 sm:mt-16 md:mt-24 mb-4 overflow-hidden select-none pointer-events-none"
+            className="w-screen mt-10 sm:mt-16 md:mt-24 mb-4 overflow-hidden select-none pointer-events-none"
           >
             {/* Row 1 — scrolls left */}
-            <div className="mb-3 sm:mb-4 overflow-hidden">
+            <div className="mb-2 sm:mb-4 overflow-hidden">
               <div className="flex animate-marquee-left whitespace-nowrap">
                 {[...Array(2)].map((_, setIdx) => (
-                  <div key={setIdx} className="flex shrink-0 items-center gap-8 sm:gap-12 md:gap-16 px-4 sm:px-8">
+                  <div key={setIdx} className="flex shrink-0 items-center gap-5 sm:gap-10 md:gap-16 px-3 sm:px-6 md:px-8">
                     {["Next.js", "React", "TypeScript", "Node.js", "Tailwind CSS", "Firebase", "MongoDB", "PostgreSQL"].map((brand) => (
                       <span
                         key={brand}
-                        className="text-base sm:text-lg md:text-2xl font-display font-bold tracking-tight text-white/40 whitespace-nowrap"
+                        className="text-sm sm:text-base md:text-lg lg:text-2xl font-display font-bold tracking-tight text-white/40 whitespace-nowrap"
                       >
                         {brand}
                       </span>
@@ -138,11 +128,11 @@ export default function Hero() {
             <div className="overflow-hidden">
               <div className="flex animate-marquee-right whitespace-nowrap">
                 {[...Array(2)].map((_, setIdx) => (
-                  <div key={setIdx} className="flex shrink-0 items-center gap-8 sm:gap-12 md:gap-16 px-4 sm:px-8">
+                  <div key={setIdx} className="flex shrink-0 items-center gap-5 sm:gap-10 md:gap-16 px-3 sm:px-6 md:px-8">
                     {["Figma", "Vercel", "Stripe", "AWS", "Docker", "GraphQL", "Prisma", "Supabase"].map((brand) => (
                       <span
                         key={brand}
-                        className="text-base sm:text-lg md:text-2xl font-display font-bold tracking-tight text-white/40 whitespace-nowrap"
+                        className="text-sm sm:text-base md:text-lg lg:text-2xl font-display font-bold tracking-tight text-white/40 whitespace-nowrap"
                       >
                         {brand}
                       </span>

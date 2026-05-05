@@ -79,7 +79,7 @@ export default function Hero() {
               className="group relative px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] w-full sm:w-auto sm:min-w-[200px] text-center transition-transform duration-300 bg-accent text-primary-dark"
             >
               <span className="absolute inset-0 bg-white/20 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
-              <span className="relative z-10">Start Your Project</span>
+              <span className="relative z-10">Book a Free Project Discussion</span>
             </Link>
 
             <Link

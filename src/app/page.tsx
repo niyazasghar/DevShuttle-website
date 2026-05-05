@@ -8,16 +8,18 @@ import ContactSection from "@/components/home/ContactSection";
 import Testimonials from "@/components/home/Testimonials";
 import OurTeam from "@/components/home/OurTeam";
 import WhatWedo from "@/components/home/WhatWedo";
+import EngagementModels from "@/components/home/EngagementModels";
 
 
 export default function Home() {
   return (
-    <div className="flex flex-col overflow-hidden">
+    <div className="flex flex-col [overflow-x:clip]">
       <Hero />
       <FeaturedWork />
-      <WhatWedo/>
+      {/* <WhatWedo/> */}
       <ProofOfWork />
       <Testimonials/>
+      <EngagementModels />
       <OurTeam/>
       <FAQ />
       {/* <WhatWeBuild /> */}

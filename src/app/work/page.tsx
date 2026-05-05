@@ -169,7 +169,7 @@ export default function WorkPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="border-t border-black/5 py-24 md:py-32">
+      <section className="border-t border-black/5 py-24 md:py-16">
         <div className="container-wide text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}

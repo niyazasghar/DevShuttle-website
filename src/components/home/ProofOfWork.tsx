@@ -29,30 +29,7 @@ const projects = [
     href: "/work",
     bgColor: "#059669",
   },
-  {
-    title: "Murzban",
-    subtitle: "Clothing Luxury",
-    image:
-      "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=800&auto=format&fit=crop",
-    href: "/work",
-    bgColor: "#7c3aed",
-  },
-  {
-    title: "Greenfeels",
-    subtitle: "Sustainable Ecom",
-    image:
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800&auto=format&fit=crop",
-    href: "/work",
-    bgColor: "#16a34a",
-  },
-  {
-    title: "Momentz",
-    subtitle: "Premium Gifting",
-    image:
-      "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?q=80&w=800&auto=format&fit=crop",
-    href: "/work",
-    bgColor: "#dc2626",
-  },
+ 
 ];
 
 export default function ProofOfWork() {

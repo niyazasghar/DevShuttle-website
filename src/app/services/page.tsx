@@ -9,34 +9,42 @@ import { useRef } from "react";
 const services = [
   {
     name: "Website Design & Development",
+    slug: "website-design-development",
     outcome: "Build trust, explain your offer clearly, and turn visitors into inquiries.",
   },
   {
     name: "Startup Landing Pages",
+    slug: "startup-landing-pages",
     outcome: "Validate your idea, collect leads, and create a strong first impression.",
   },
   {
     name: "SaaS MVP Development",
+    slug: "saas-mvp-development",
     outcome: "Launch faster, test the market, and avoid wasting months on unnecessary features.",
   },
   {
     name: "Custom Web Applications",
+    slug: "custom-web-applications",
     outcome: "Replace manual work, reduce operational chaos, and create a system that fits your business.",
   },
   {
     name: "Admin Dashboards",
+    slug: "admin-dashboards",
     outcome: "Manage your business from one clean internal system.",
   },
   {
     name: "Client Portals",
+    slug: "client-portals",
     outcome: "Improve communication, access, transparency, and customer experience.",
   },
   {
     name: "Booking & Workflow Systems",
+    slug: "booking-workflow-systems",
     outcome: "Reduce manual admin work and make booking or service delivery easier.",
   },
   {
     name: "App Modernization",
+    slug: "app-modernization",
     outcome: "Rebuild with a cleaner architecture, better performance, and a more scalable foundation.",
   },
 ];
@@ -52,6 +60,13 @@ const staggerContainer = {
 export default function ServicesPage() {
   const pageTopRef = useRef<HTMLDivElement>(null);
   const ctaSectionRef = useRef<HTMLElement>(null);
+  const processContainerRef = useRef<HTMLDivElement>(null);
+
+  // Process section scroll progress for the SVG drawing
+  const { scrollYProgress: processScrollProgress } = useScroll({
+    target: processContainerRef,
+    offset: ["start center", "end center"],
+  });
 
   // CTA section background sweep
   const { scrollYProgress: ctaScrollProgress } = useScroll({
@@ -148,7 +163,7 @@ export default function ServicesPage() {
               >
                 <div className="w-full h-full relative">
                   <Image
-                    src="/images/services-hero.png"
+                    src="/images/ChatGPT Image May 6, 2026, 12_20_11 AM.png"
                     alt="Our Workspace"
                     fill
                     className="object-cover grayscale-[0.2]"
@@ -210,23 +225,25 @@ export default function ServicesPage() {
                       initial: { opacity: 0, y: 15 },
                       animate: { opacity: 1, y: 0 }
                     }}
-                    className="group flex items-center justify-between py-7 border-b border-black/5 hover:border-accent/30 transition-all cursor-pointer"
+                    className="group border-b border-black/5 hover:border-accent/30 transition-all"
                   >
-                    <div className="flex-1">
-                      <span className="text-lg md:text-xl font-medium text-brand-gray-700 group-hover:text-primary-dark transition-colors block mb-1">
-                        {service.name}
-                      </span>
-                      <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                        <div className="overflow-hidden">
-                          <span className="text-sm text-brand-gray-400 group-hover:text-brand-gray-500 block pt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 translate-y-2 group-hover:translate-y-0 transition-all">
-                            {service.outcome}
-                          </span>
+                    <Link href={`/services/${service.slug}`} className="flex items-center justify-between py-7 cursor-pointer">
+                      <div className="flex-1">
+                        <span className="text-lg md:text-xl font-medium text-brand-gray-700 group-hover:text-primary-dark transition-colors block mb-1">
+                          {service.name}
+                        </span>
+                        <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                          <div className="overflow-hidden">
+                            <span className="text-sm text-brand-gray-400 group-hover:text-brand-gray-500 block pt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 translate-y-2 group-hover:translate-y-0 transition-all">
+                              {service.outcome}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex items-center justify-center w-6 h-6 rounded-full border border-transparent group-hover:border-accent/20 transition-all shrink-0 ml-4">
-                      <Plus className="w-4 h-4 text-accent opacity-30 group-hover:opacity-100 transition-all transform group-hover:rotate-90" />
-                    </div>
+                      <div className="flex items-center justify-center w-6 h-6 rounded-full border border-transparent group-hover:border-accent/20 transition-all shrink-0 ml-4">
+                        <Plus className="w-4 h-4 text-accent opacity-30 group-hover:opacity-100 transition-all transform group-hover:rotate-90" />
+                      </div>
+                    </Link>
                   </motion.div>
                 ))}
               </motion.div>
@@ -236,125 +253,95 @@ export default function ServicesPage() {
       </section>
 
       {/* 4. Process Section — Dark */}
-      <section className="bg-primary-dark text-white py-32 lg:py-24 relative z-30">
-        <div className="container-wide">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
+      <section className="bg-primary-dark text-white py-16 lg:py-16 relative z-30 overflow-hidden">
+        <div className="container-wide text-center mb-16 lg:mb-[-60px]">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-accent font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase mb-4 block"
+          >
+            OUR PROCESS
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[clamp(2.5rem,5vw,4rem)] font-display font-bold"
+          >
+            A clear path to launch.
+          </motion.h2>
+        </div>
 
-            {/* Left column: sticky heading */}
-            <div className="lg:w-5/12 lg:self-start lg:sticky lg:top-40">
-              <motion.span
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="text-accent font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase mb-8 block"
-              >
-                OUR PROCESS
-              </motion.span>
-              <motion.h2
-                variants={{
-                  initial: {},
-                  animate: { transition: { staggerChildren: 0.08 } }
-                }}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true, margin: "-100px" }}
-                className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1] tracking-tighter font-display"
-              >
-                {"A clear process from idea to launch.".split(" ").map((word, idx) => (
-                  <span key={idx} className="inline-block overflow-hidden mr-[0.25em] pb-4 -mb-4 pt-2">
-                    <motion.span
-                      variants={{
-                        initial: { y: "100%", opacity: 0 },
-                        animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-                      }}
-                      className="inline-block"
-                    >
-                      {word}
-                    </motion.span>
-                  </span>
-                ))}
-              </motion.h2>
-            </div>
+        <div ref={processContainerRef} className="relative w-full max-w-5xl mx-auto h-[1200px] md:h-[1500px] flex flex-col">
+          {/* The SVG Winding Line */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            preserveAspectRatio="none"
+            viewBox="-3 0 100 114"
+          >
+            {/* Background faint path */}
+            <path
+              d="M 20 10 L 20 15 Q 20 20, 25 20 L 75 20 Q 80 20, 80 25 L 80 30 L 80 35 Q 80 40, 75 40 L 25 40 Q 20 40, 20 45 L 20 50 L 20 55 Q 20 60, 25 60 L 75 60 Q 80 60, 80 65 L 80 70 L 80 75 Q 80 80, 75 80 L 25 80 Q 20 80, 20 85 L 20 90 L 20 95 Q 20 100, 25 100 L 75 100 Q 80 100, 80 105 L 80 110"
+              vectorEffect="non-scaling-stroke"
+              stroke="rgba(255,255,255,0.05)"
+              strokeWidth="2"
+              strokeDasharray="4 4"
+              fill="none"
+            />
+            {/* Animated drawn path */}
+            <motion.path
+              d="M 20 10 L 20 15 Q 20 20, 25 20 L 75 20 Q 80 20, 80 25 L 80 30 L 80 35 Q 80 40, 75 40 L 25 40 Q 20 40, 20 45 L 20 50 L 20 55 Q 20 60, 25 60 L 75 60 Q 80 60, 80 65 L 80 70 L 80 75 Q 80 80, 75 80 L 25 80 Q 20 80, 20 85 L 20 90 L 20 95 Q 20 100, 25 100 L 75 100 Q 80 100, 80 105 L 80 110"
+              stroke="#FF5A36"
+              strokeWidth="0.4"
+              fill="none"
+              pathLength={1}
+              style={{ pathLength: processScrollProgress }}
+            />
+          </svg>
 
-            {/* Right column: process steps */}
-            <div className="lg:w-7/12">
-              {[
-                {
-                  num: "01",
-                  title: "Discover",
-                  desc: "We understand your business, users, goals, pain points, budget, and timeline."
-                },
-                {
-                  num: "02",
-                  title: "Scope",
-                  desc: "We define exactly what will be built, what will not be built, and how the project will be delivered."
-                },
-                {
-                  num: "03",
-                  title: "Design",
-                  desc: "We plan the structure, user flow, interface, and experience before development begins."
-                },
-                {
-                  num: "04",
-                  title: "Develop",
-                  desc: "We build the frontend, backend, database, APIs, integrations, and core product features."
-                },
-                {
-                  num: "05",
-                  title: "Test",
-                  desc: "We test core flows, responsiveness, performance, bugs, and production readiness."
-                },
-                {
-                  num: "06",
-                  title: "Launch",
-                  desc: "We deploy your product, configure hosting, connect domains, and provide handover support."
-                }
-              ].map((step, idx) => (
-                <div
-                  key={step.num}
-                  className="py-12 lg:py-16 border-b border-white/10 first:border-t first:border-white/10"
+          {/* The Steps */}
+          {[
+            { num: "01", title: "Discover", desc: "We understand your business, users, goals, pain points, budget, and timeline." },
+            { num: "02", title: "Scope", desc: "We define exactly what will be built, what will not be built, and how the project will be delivered." },
+            { num: "03", title: "Design", desc: "We plan the structure, user flow, interface, and experience before development begins." },
+            { num: "04", title: "Develop", desc: "We build the frontend, backend, database, APIs, integrations, and core product features." },
+            { num: "05", title: "Test", desc: "We test core flows, responsiveness, performance, bugs, and production readiness." },
+            { num: "06", title: "Launch", desc: "We deploy your product, configure hosting, connect domains, and provide handover support." }
+          ].map((step, idx) => {
+            const isRight = idx % 2 === 1;
+            return (
+              <div key={idx} className="flex-1 w-full relative">
+                {/* Dot */}
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true, margin: "-10%" }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className={`absolute top-1/2 -translate-y-1/2 ${isRight ? 'left-[80%]' : 'left-[20%]'} -translate-x-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full bg-primary-dark border-4 border-accent text-white flex items-center justify-center font-bold text-sm md:text-base z-10 shadow-[0_0_20px_rgba(255,90,54,0.3)]`}
                 >
-                  <div className="flex items-start gap-6">
-                    <motion.span
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      className="text-accent font-bold text-sm tracking-wider mt-1 shrink-0"
-                    >
-                      {step.num}
-                    </motion.span>
-                    <div>
-                      <motion.h3
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-2xl md:text-3xl font-bold font-display tracking-tight mb-4"
-                      >
-                        {step.title}
-                      </motion.h3>
-                      <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-brand-gray-400 text-base md:text-lg leading-relaxed max-w-lg"
-                      >
-                        {step.desc}
-                      </motion.p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                  {step.num}
+                </motion.div>
 
-          </div>
+                {/* Text Content */}
+                <motion.div
+                  initial={{ opacity: 0, x: isRight ? 30 : -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-10%" }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className={`absolute top-1/2 -translate-y-1/2 w-[60%] md:w-[45%] ${isRight ? 'right-[20%] pr-8 md:pr-16 text-right' : 'left-[20%] pl-8 md:pl-16 text-left'}`}
+                >
+                  <h3 className="text-xl md:text-3xl font-display font-bold mb-2 md:mb-4">{step.title}</h3>
+                  <p className="text-white/60 text-sm md:text-base leading-relaxed">{step.desc}</p>
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
       {/* 5. Partnership Section — High End Editorial */}
-      <section className="bg-white py-32 lg:py-24 relative z-30 border-t border-black/5">
+      <section className="bg-white py-32 lg:py-16 relative z-30 border-t border-black/5">
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-start">
 
@@ -408,18 +395,18 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="mb-24 last:mb-0 group"
+                  className="mb-16 last:mb-0 group"
                 >
-                  <div className="flex items-baseline gap-6 mb-8">
+                  <div className="flex items-baseline gap-6 mb-4">
                     <span className="text-accent font-display text-xl font-light italic opacity-50 group-hover:opacity-100 transition-opacity duration-500">0{idx + 1}</span>
                     <h3 className="text-2xl md:text-3xl font-bold font-display tracking-tight text-primary-dark group-hover:text-accent transition-colors duration-500">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-brand-gray-500 text-base lg:text-lg leading-relaxed mb-12 max-w-xl font-light">
+                  <p className="text-brand-gray-500 text-base lg:text-lg leading-relaxed mb-6 max-w-xl font-light">
                     {item.desc}
                   </p>
-                  <div className="flex flex-col gap-5">
+                  <div className="flex flex-col gap-2">
                     {item.bullets.map((bullet, bIdx) => (
                       <motion.div
                         key={bullet}
@@ -493,9 +480,9 @@ export default function ServicesPage() {
                 href="/contact"
                 className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-full text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] transition-transform duration-300 border border-white/20"
               >
-                <span className="absolute inset-0 bg-white/[0.08] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
-                <span className="relative z-10 text-white">Book a Free Project Discussion</span>
-                <svg className="relative z-10 w-4 h-4 text-white group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <span className="absolute inset-0 bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
+                <span className="relative z-10 text-white group-hover:text-accent transition-colors duration-300 delay-75">Book a Free Project Discussion</span>
+                <svg className="relative z-10 w-4 h-4 text-white group-hover:text-accent group-hover:translate-x-1 transition-all duration-300 delay-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>

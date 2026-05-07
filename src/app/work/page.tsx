@@ -71,8 +71,7 @@ export default function WorkPage() {
               transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[1] tracking-tighter font-display text-primary-dark"
             >
-              Some of our <br />
-              finest work.
+              Some of our finest Works.
             </motion.h1>
           </div>
 
@@ -84,8 +83,7 @@ export default function WorkPage() {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="text-brand-gray-500 text-base md:text-lg leading-relaxed max-w-sm"
             >
-              Solving diverse business needs through great design and UX.
-            </motion.p>
+              Explore how DevShuttle helps startups and growing businesses launch faster, streamline operations, and build scalable digital products.            </motion.p>
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}

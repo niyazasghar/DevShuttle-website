@@ -12,7 +12,7 @@ const features = [
       "For startups and service businesses that need credibility, clarity, and better lead conversion.",
     icon: Globe,
     href: "/services",
-    image: "/images/launch-websites.png",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop",
     highlights: [
       "Conversion-optimized design",
       "SEO-ready architecture",
@@ -25,7 +25,7 @@ const features = [
       "For founders who need to validate an idea, onboard users, and launch a working product.",
     icon: Blocks,
     href: "/services",
-    image: "/images/saas-mvps.png",
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2074&auto=format&fit=crop",
     highlights: [
       "Rapid prototyping",
       "User authentication & billing",
@@ -38,7 +38,7 @@ const features = [
       "For growing businesses that need better control over users, data, workflows, and operations.",
     icon: LayoutDashboard,
     href: "/services",
-    image: "/images/dashboards-portals.png",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
     highlights: [
       "Real-time data visualization",
       "Role-based access control",
@@ -51,7 +51,7 @@ const features = [
       "For teams that have outgrown spreadsheets, manual processes, and disconnected tools.",
     icon: Code2,
     href: "/custom-development",
-    image: "/images/custom-web-apps.png",
+    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2074&auto=format&fit=crop",
     highlights: [
       "API-first architecture",
       "Workflow automation",

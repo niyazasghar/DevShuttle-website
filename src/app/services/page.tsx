@@ -481,7 +481,7 @@ export default function ServicesPage() {
                 className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-full text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] transition-transform duration-300 border border-white/20"
               >
                 <span className="absolute inset-0 bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
-                <span className="relative z-10 text-white group-hover:text-accent transition-colors duration-300 delay-75">Start Your Project</span>
+                <span className="relative z-10 text-white group-hover:text-accent transition-colors duration-300 delay-75">Book a Free Project Discussion</span>
                 <svg className="relative z-10 w-4 h-4 text-white group-hover:text-accent group-hover:translate-x-1 transition-all duration-300 delay-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

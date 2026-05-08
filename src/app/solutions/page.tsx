@@ -191,60 +191,67 @@ export default function SolutionsPage() {
       </section>
 
       {/* ─── Solution Categories ─── */}
-      {solutionCategories.map((category, catIdx) => (
-        <section key={catIdx} className={`py-28 lg:py-24 border-t border-black/5 ${catIdx % 2 === 0 ? 'bg-white' : 'bg-background-light'}`}>
-          <div className="container-wide">
-             <motion.div
-               initial={{ opacity: 0, y: 30 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-               className="mb-20 lg:mb-28"
-             >
-                <span className="text-xs uppercase tracking-[0.4em] font-bold text-accent mb-6 block">
-                   {category.group}
-                </span>
-                <h2 className="text-3xl lg:text-4xl font-display font-bold text-primary-dark mb-4 max-w-3xl">
-                   {category.subtitle}
-                </h2>
-                <p className="text-base text-brand-gray-500 font-light">
-                   <span className="text-accent font-semibold">Outcome:</span> {category.outcome}
-                </p>
-             </motion.div>
+      {solutionCategories.map((category, catIdx) => {
+        const isDark = catIdx % 2 !== 0;
+        return (
+          <section key={catIdx} className={`py-28 lg:py-24 border-t ${isDark ? 'bg-primary-dark border-white/5' : 'bg-white border-black/5'}`}>
+            <div className="container-wide">
+               <motion.div
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                 className="mb-20 lg:mb-28"
+               >
+                  <span className="text-xs uppercase tracking-[0.4em] font-bold text-accent mb-6 block">
+                     {category.group}
+                  </span>
+                  <h2 className={`text-3xl lg:text-4xl font-display font-bold mb-4 max-w-3xl ${isDark ? 'text-white' : 'text-primary-dark'}`}>
+                     {category.subtitle}
+                  </h2>
+                  <p className={`text-base font-light ${isDark ? 'text-brand-gray-400' : 'text-brand-gray-500'}`}>
+                     <span className="text-accent font-semibold">Outcome:</span> {category.outcome}
+                  </p>
+               </motion.div>
 
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {category.solutions.map((solution, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="group p-10 lg:p-12 bg-white border border-black/5 rounded-sm hover:shadow-lg hover:shadow-black/5 transition-all duration-500"
-                  >
-                     <div className="w-14 h-14 flex items-center justify-center bg-accent/5 border border-accent/10 rounded-xl mb-10 group-hover:bg-accent transition-all duration-500">
-                        <solution.icon className="w-7 h-7 text-accent group-hover:text-white transition-colors" />
-                     </div>
-                     <h3 className="text-2xl lg:text-3xl font-display font-bold text-primary-dark mb-5 group-hover:text-accent transition-colors">
-                        {solution.title}
-                     </h3>
-                     <p className="text-brand-gray-500 font-light leading-relaxed mb-10 min-h-[72px]">
-                        {solution.description}
-                     </p>
-                     <ul className="flex flex-col gap-4 border-t border-black/5 pt-8">
-                        {solution.features.map(f => (
-                          <li key={f} className="flex items-center gap-4 text-xs font-bold text-brand-gray-400 uppercase tracking-widest">
-                             <div className="w-1 h-1 bg-accent rounded-full" />
-                             {f}
-                          </li>
-                        ))}
-                     </ul>
-                  </motion.div>
-                ))}
-             </div>
-          </div>
-        </section>
-      ))}
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {category.solutions.map((solution, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                      className={`group p-10 lg:p-12 rounded-sm transition-all duration-300 transform hover:-translate-y-1 ${
+                        isDark 
+                          ? 'bg-white/5 border border-white/10 hover:bg-white/[0.08]' 
+                          : 'bg-white border border-black/5 hover:shadow-lg'
+                      }`}
+                    >
+                       <div className="w-14 h-14 flex items-center justify-center bg-accent/5 border border-accent/10 rounded-xl mb-10 group-hover:bg-accent transition-all duration-300">
+                          <solution.icon className="w-7 h-7 text-accent group-hover:text-white transition-colors" />
+                       </div>
+                       <h3 className={`text-2xl lg:text-3xl font-display font-bold mb-5 group-hover:text-accent transition-colors ${isDark ? 'text-white' : 'text-primary-dark'}`}>
+                          {solution.title}
+                       </h3>
+                       <p className={`font-light leading-relaxed mb-10 min-h-[72px] ${isDark ? 'text-brand-gray-400' : 'text-brand-gray-500'}`}>
+                          {solution.description}
+                       </p>
+                       <ul className={`flex flex-col gap-4 border-t pt-8 ${isDark ? 'border-white/10' : 'border-black/5'}`}>
+                          {solution.features.map(f => (
+                            <li key={f} className={`flex items-center gap-4 text-xs font-bold uppercase tracking-widest ${isDark ? 'text-brand-gray-300' : 'text-brand-gray-400'}`}>
+                               <div className="w-1 h-1 bg-accent rounded-full" />
+                               {f}
+                            </li>
+                          ))}
+                       </ul>
+                    </motion.div>
+                  ))}
+               </div>
+            </div>
+          </section>
+        );
+      })}
 
       {/* ─── CTA — Accent Sweep ─── */}
       <section

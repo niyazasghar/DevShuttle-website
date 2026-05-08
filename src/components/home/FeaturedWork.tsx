@@ -1,61 +1,180 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LayoutDashboard, Globe, Blocks, Code2, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  LayoutDashboard,
+  Globe,
+  Blocks,
+  Code2,
+  ArrowRight,
+  CheckCircle2,
+  Users,
+  Calendar,
+  Package,
+  Wrench,
+  ShieldCheck,
+  FileText,
+  BarChart,
+  Workflow,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 const features = [
   {
-    title: "Launch Websites",
-    description:
-      "For startups and service businesses that need credibility, clarity, and better lead conversion.",
+    title: "Business Websites",
+    description: "Professional websites designed for companies and startups.",
     icon: Globe,
-    href: "/services",
+    href: "/solutions",
     image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop",
     highlights: [
-      "Conversion-optimized design",
-      "SEO-ready architecture",
-      "Mobile-first responsive",
+      "Responsive design",
+      "SEO optimization",
+      "CMS integration",
+      "Contact forms",
     ],
   },
   {
-    title: "SaaS MVPs",
-    description:
-      "For founders who need to validate an idea, onboard users, and launch a working product.",
-    icon: Blocks,
-    href: "/services",
-    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2074&auto=format&fit=crop",
-    highlights: [
-      "Rapid prototyping",
-      "User authentication & billing",
-      "Scalable infrastructure",
-    ],
-  },
-  {
-    title: "Dashboards & Portals",
-    description:
-      "For growing businesses that need better control over users, data, workflows, and operations.",
+    title: "Admin Dashboards",
+    description: "Business control panels used to manage data, users, and operations.",
     icon: LayoutDashboard,
-    href: "/services",
+    href: "/solutions",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
     highlights: [
-      "Real-time data visualization",
-      "Role-based access control",
-      "Custom reporting",
+      "Analytics dashboards",
+      "User management",
+      "Activity monitoring",
+      "Data visualization",
     ],
   },
   {
-    title: "Custom Web Applications",
-    description:
-      "For teams that have outgrown spreadsheets, manual processes, and disconnected tools.",
+    title: "CRM Systems",
+    description: "Customer relationship management systems for sales pipelines and customer interactions.",
+    icon: Users,
+    href: "/solutions",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    highlights: [
+      "Lead tracking",
+      "Customer database",
+      "Pipeline management",
+      "Workflow automation",
+    ],
+  },
+  {
+    title: "Booking Platforms",
+    description: "Scheduling systems for service businesses.",
+    icon: Calendar,
+    href: "/solutions",
+    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=2068&auto=format&fit=crop",
+    highlights: [
+      "Booking interface",
+      "Calendar integration",
+      "Time slot management",
+      "Automated notifications",
+    ],
+  },
+  {
+    title: "Inventory & Order Management",
+    description: "Systems to manage products, stock, and order workflows.",
+    icon: Package,
+    href: "/solutions",
+    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=2070&auto=format&fit=crop",
+    highlights: [
+      "Inventory tracking",
+      "Order management",
+      "Shipping workflows",
+      "Analytics dashboards",
+    ],
+  },
+  {
+    title: "Internal Business Tools",
+    description: "Custom tools designed to automate internal processes.",
+    icon: Wrench,
+    href: "/solutions",
+    image: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=2070&auto=format&fit=crop",
+    highlights: [
+      "Operational dashboards",
+      "Internal workflows",
+      "Employee tools",
+      "Automation systems",
+    ],
+  },
+  {
+    title: "SaaS MVP Platforms",
+    description: "Early-stage software platforms designed to validate startup ideas.",
+    icon: Blocks,
+    href: "/solutions",
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2074&auto=format&fit=crop",
+    highlights: [
+      "User authentication",
+      "Subscription payments",
+      "Product dashboards",
+      "Cloud deployment",
+    ],
+  },
+  {
+    title: "Role-Based Platforms",
+    description: "Applications where different users have different permissions and dashboards.",
+    icon: ShieldCheck,
+    href: "/solutions",
+    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
+    highlights: [
+      "Role-based permissions",
+      "Multiple dashboards",
+      "Workflow segregation",
+      "User management",
+    ],
+  },
+  {
+    title: "Client Portals",
+    description: "Secure platforms that allow businesses to interact with their clients.",
+    icon: FileText,
+    href: "/solutions",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
+    highlights: [
+      "Document sharing",
+      "Messaging",
+      "Invoices & payments",
+      "Project updates",
+    ],
+  },
+  {
+    title: "Reporting & Analytics",
+    description: "Systems designed to analyze business data and generate insights.",
+    icon: BarChart,
+    href: "/solutions",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    highlights: [
+      "Analytics dashboards",
+      "Data visualization",
+      "Reporting tools",
+      "Exportable data",
+    ],
+  },
+  {
+    title: "Workflow Automation",
+    description: "Platforms that automate business processes using form inputs and workflows.",
+    icon: Workflow,
+    href: "/solutions",
+    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=2074&auto=format&fit=crop",
+    highlights: [
+      "Data collection forms",
+      "Automated workflows",
+      "System integrations",
+      "Approval pipelines",
+    ],
+  },
+  {
+    title: "Full Web Applications",
+    description: "Complete platforms combining authentication, databases, dashboards, and workflows.",
     icon: Code2,
     href: "/custom-development",
     image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2074&auto=format&fit=crop",
     highlights: [
-      "API-first architecture",
-      "Workflow automation",
-      "Third-party integrations",
+      "Authentication systems",
+      "Database-driven functionality",
+      "User dashboards",
+      "Business workflows",
     ],
   },
 ];
@@ -68,7 +187,7 @@ export default function FeaturedWork() {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
 
           {/* ── Left: Sticky heading ── */}
-          <div className="w-full lg:w-[45%] lg:sticky lg:top-2 lg:self-start pt-24 pb-12 lg:pb-6 lg:pt-16 lg:pb-0">
+          <div className="w-full lg:w-[35%] lg:sticky lg:top-2 lg:self-start pt-24 pb-12 lg:pb-6 lg:pt-16 lg:pb-0">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -86,8 +205,8 @@ export default function FeaturedWork() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
               className="text-[clamp(2.25rem,4.5vw,4rem)] font-display font-bold text-primary-dark leading-[1.08] tracking-tight mb-6"
             >
-              Digital Products Built Around{" "}
-              <span className="text-accent">Real Business Problems</span>
+              Types of Solutions{" "}
+              <span className="text-accent">We Build</span>
             </motion.h2>
 
             <motion.p
@@ -109,11 +228,11 @@ export default function FeaturedWork() {
               transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
             >
               <Link
-                href="/services"
+                href="/solutions"
                 className="group inline-flex items-center gap-3"
               >
                 <span className="btn-premium text-sm !px-7 !py-3.5">
-                  Talk to Us
+                  Explore Solutions
                 </span>
                 <span className="w-10 h-10 rounded-full border border-accent/40 flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
                   <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 transition-transform duration-300" />
@@ -123,14 +242,14 @@ export default function FeaturedWork() {
           </div>
 
           {/* ── Right: Scrolling cards ── */}
-          <div className="w-full lg:w-[40%] flex flex-col gap-6 py-24 lg:py-32">
+          <div className="w-full lg:w-[65%] flex flex-col gap-6 py-24 lg:py-32">
             {features.map((feature, idx) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] as const }}
+                transition={{ duration: 0.6, delay: idx * 0.04, ease: [0.16, 1, 0.3, 1] as const }}
               >
                 <Link href={feature.href} className="group block">
                   <div className="relative bg-white border border-brand-gray-200 rounded-2xl p-5 lg:p-6 transition-all duration-500 hover:border-accent/30 hover:shadow-xl hover:shadow-black/5 overflow-hidden flex flex-col">

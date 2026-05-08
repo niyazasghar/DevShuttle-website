@@ -185,48 +185,53 @@ export default function PackagesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className={`group relative flex flex-col bg-background-light border rounded-sm overflow-hidden transition-all duration-500 hover:shadow-lg ${
+                className={`group relative flex flex-col border rounded-sm overflow-hidden transition-all duration-500 hover:-translate-y-1.5 ${
                   pkg.isPopular
-                    ? "border-accent/40 ring-1 ring-accent/20"
-                    : "border-black/5 hover:border-accent/30"
+                    ? "bg-primary-dark border-accent/40 ring-1 ring-accent/20 text-white hover:shadow-[0_8px_40px_rgba(240,93,35,0.15)]"
+                    : "bg-background-light border-black/5 hover:border-accent/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
                 }`}
               >
+                {/* Accent top-line that reveals on hover */}
+                <div className={`absolute top-0 left-0 right-0 h-[2px] transition-all duration-500 origin-left scale-x-0 group-hover:scale-x-100 ${
+                  pkg.isPopular ? "bg-accent" : "bg-accent"
+                }`} />
+
                 {pkg.isPopular && (
-                  <div className="absolute top-0 right-0 bg-accent text-white text-[9px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-bl-sm">
+                  <div className="absolute top-0 right-0 bg-accent text-white text-[9px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-bl-sm z-10">
                     Recommended
                   </div>
                 )}
 
                 {/* Card top */}
-                <div className="p-7 md:p-8 border-b border-black/5">
+                <div className={`p-7 md:p-8 border-b transition-colors duration-500 ${pkg.isPopular ? "border-white/10" : "border-black/5 group-hover:border-accent/10"}`}>
                   <div className="flex items-start gap-5 mb-6">
-                    <div className="w-11 h-11 rounded-xl bg-accent/5 border border-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:border-accent transition-all duration-500">
+                    <div className="w-11 h-11 rounded-xl bg-accent/5 border border-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:border-accent group-hover:shadow-[0_0_20px_rgba(240,93,35,0.25)] transition-all duration-500">
                       <pkg.icon className="w-5 h-5 text-accent group-hover:text-white transition-colors duration-300" />
                     </div>
                     <div>
                       <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent mb-1 block">
                         Package {pkg.num}
                       </span>
-                      <h2 className="text-lg md:text-xl font-display font-bold text-primary-dark leading-tight">
+                      <h2 className={`text-lg md:text-xl font-display font-bold leading-tight transition-colors duration-300 ${pkg.isPopular ? "text-white" : "text-primary-dark group-hover:text-accent"}`}>
                         {pkg.name}
                       </h2>
                     </div>
                   </div>
-                  <p className="text-sm text-brand-gray-500 leading-relaxed">
+                  <p className={`text-sm leading-relaxed ${pkg.isPopular ? "text-brand-gray-300" : "text-brand-gray-500"}`}>
                     {pkg.description}
                   </p>
                 </div>
 
                 {/* Includes */}
                 <div className="p-7 md:p-8 flex-1">
-                  <h3 className="text-[10px] font-bold text-primary-dark/40 uppercase tracking-[0.2em] mb-4">
+                  <h3 className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 ${pkg.isPopular ? "text-white/40" : "text-primary-dark/40"}`}>
                     Includes
                   </h3>
                   <ul className="space-y-2.5 mb-8">
                     {pkg.includes.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-3 text-sm text-brand-gray-500 leading-relaxed"
+                        className={`flex items-start gap-3 text-sm leading-relaxed ${pkg.isPopular ? "text-white/70" : "text-brand-gray-500"}`}
                       >
                         <Check className="w-3.5 h-3.5 text-accent/70 mt-0.5 shrink-0" />
                         <span>{item}</span>
@@ -235,14 +240,18 @@ export default function PackagesPage() {
                   </ul>
 
                   {/* Suitable for */}
-                  <h3 className="text-[10px] font-bold text-primary-dark/40 uppercase tracking-[0.2em] mb-3">
+                  <h3 className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-3 ${pkg.isPopular ? "text-white/40" : "text-primary-dark/40"}`}>
                     Suitable for
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {pkg.suitable.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 rounded-full bg-white border border-black/5 text-[11px] font-bold text-primary-dark/55"
+                        className={`px-3 py-1 rounded-full text-[11px] font-bold transition-colors duration-300 ${
+                          pkg.isPopular 
+                            ? "bg-white/10 border border-white/10 text-white/70 group-hover:border-accent/30" 
+                            : "bg-white border border-black/5 text-primary-dark/55 group-hover:border-accent/15"
+                        }`}
                       >
                         {tag}
                       </span>
@@ -254,11 +263,13 @@ export default function PackagesPage() {
                 <div className="px-7 md:px-8 pb-7 md:pb-8">
                   <Link
                     href="/contact"
-                    className="group/btn relative inline-flex w-full items-center justify-center gap-3 px-6 py-3 rounded-full text-xs font-bold tracking-wide uppercase overflow-hidden transition-transform duration-300 active:scale-[0.98] bg-primary-dark"
+                    className={`group/btn relative inline-flex w-full items-center justify-center gap-3 px-6 py-3 rounded-full text-xs font-bold tracking-wide uppercase overflow-hidden transition-all duration-300 active:scale-[0.98] ${
+                      pkg.isPopular ? "bg-white text-primary-dark hover:shadow-[0_0_20px_rgba(240,93,35,0.3)]" : "bg-primary-dark text-white hover:shadow-[0_0_20px_rgba(240,93,35,0.2)]"
+                    }`}
                   >
                     <span className="absolute inset-0 bg-accent origin-left scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
-                    <span className="relative z-10 text-white">Get Started</span>
-                    <ArrowRight className="relative z-10 w-3.5 h-3.5 text-white group-hover/btn:translate-x-1 transition-transform duration-300" />
+                    <span className={`relative z-10 transition-colors duration-300 ${pkg.isPopular ? "text-primary-dark group-hover/btn:text-white" : "text-white"}`}>Get Started</span>
+                    <ArrowRight className={`relative z-10 w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-all duration-300 ${pkg.isPopular ? "text-primary-dark group-hover/btn:text-white" : "text-white"}`} />
                   </Link>
                 </div>
               </motion.div>
@@ -301,7 +312,7 @@ export default function PackagesPage() {
                 delivery with optional maintenance contracts.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   {
                     title: "Fixed-Scope",
@@ -311,12 +322,16 @@ export default function PackagesPage() {
                     title: "Milestone-Based",
                     body: "Payments and deliverables tied to specific project milestones and technical goals.",
                   },
+                  {
+                    title: "Dedicated Team",
+                    body: "Ongoing monthly retainer for continuous development, scaling, and support.",
+                  },
                 ].map((item) => (
                   <div
                     key={item.title}
-                    className="bg-white/5 border border-white/10 rounded-sm p-6"
+                    className="group/eng bg-white/5 border border-white/10 rounded-sm p-6 transition-all duration-500 hover:bg-white/[0.08] hover:-translate-y-1 hover:border-accent/20 hover:shadow-[0_4px_20px_rgba(240,93,35,0.08)]"
                   >
-                    <h4 className="text-sm font-bold text-white mb-3">{item.title}</h4>
+                    <h4 className="text-sm font-bold text-white mb-3 group-hover/eng:text-accent transition-colors duration-300">{item.title}</h4>
                     <p className="text-xs text-white/45 leading-relaxed">{item.body}</p>
                   </div>
                 ))}
@@ -329,7 +344,7 @@ export default function PackagesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-white/[0.03] border border-white/10 rounded-sm p-8 md:p-10"
+              className="bg-white/[0.03] border border-white/10 rounded-sm p-8 md:p-10 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_4px_30px_rgba(240,93,35,0.06)]"
             >
               <h3 className="text-2xl font-display font-bold text-white mb-4">
                 Custom Solutions

@@ -62,13 +62,13 @@ const coreStack = [
     icon: MonitorSmartphone,
     outcome: "Fast, responsive interfaces that feel polished on every device.",
     technologies: [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
-      "HTML5",
-      "CSS3",
-      "JavaScript",
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+      { name: "Next.js", logo: "https://cdn.simpleicons.org/nextdotjs/white" },
+      { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+      { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+      { name: "HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+      { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
     ],
     usedFor: [
       "Marketing websites and landing pages",
@@ -81,7 +81,13 @@ const coreStack = [
     category: "Backend Technologies",
     icon: ServerCog,
     outcome: "Reliable business logic, APIs, workflows, and application services.",
-    technologies: ["FastAPI", "Node.js", "Express.js", "Spring Boot", "Go"],
+    technologies: [
+      { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" },
+      { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+      { name: "Express.js", logo: "https://cdn.simpleicons.org/express/white" },
+      { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" },
+      { name: "Go", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" },
+    ],
     usedFor: [
       "REST APIs and backend services",
       "Custom business workflows",
@@ -93,7 +99,13 @@ const coreStack = [
     category: "Databases & Search",
     icon: Database,
     outcome: "Clean data foundations for products, reports, users, and operations.",
-    technologies: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "SQLite"],
+    technologies: [
+      { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+      { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+      { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
+      { name: "Elasticsearch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/elasticsearch/elasticsearch-original.svg" },
+      { name: "SQLite", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" },
+    ],
     usedFor: [
       "Structured application data",
       "Reporting and analytics systems",
@@ -105,7 +117,13 @@ const coreStack = [
     category: "Authentication Systems",
     icon: KeyRound,
     outcome: "Secure access for users, teams, admins, customers, and partners.",
-    technologies: ["JWT", "Session Auth", "Clerk", "NextAuth", "Firebase Auth", "OAuth"],
+    technologies: [
+      { name: "JWT", logo: "https://cdn.simpleicons.org/jsonwebtokens/white" },
+      { name: "Clerk", logo: "https://cdn.simpleicons.org/clerk/6C47FF" },
+      { name: "NextAuth", logo: "https://cdn.simpleicons.org/nextdotjs/white" },
+      { name: "Firebase Auth", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
+      { name: "OAuth", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oauth/oauth-original.svg" },
+    ],
     usedFor: [
       "Login and registration flows",
       "Role-based access control",
@@ -117,7 +135,14 @@ const coreStack = [
     category: "Deployment & Infrastructure",
     icon: Cloud,
     outcome: "Production-ready hosting, deployment, and cloud setup without chaos.",
-    technologies: ["Vercel", "Render", "Railway", "AWS", "Docker", "GitHub Actions"],
+    technologies: [
+      { name: "Vercel", logo: "https://cdn.simpleicons.org/vercel/white" },
+      { name: "Render", logo: "https://cdn.simpleicons.org/render/46E3B7" },
+      { name: "Railway", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/railway/railway-original.svg" },
+      { name: "AWS", logo: "https://cdn.simpleicons.org/amazonaws/FF9900" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+      { name: "GitHub Actions", logo: "https://cdn.simpleicons.org/githubactions/2088FF" },
+    ],
     usedFor: [
       "Frontend and backend deployment",
       "Cloud hosting and production environments",
@@ -129,7 +154,12 @@ const coreStack = [
     category: "Storage Solutions",
     icon: HardDrive,
     outcome: "Reliable file, media, and document handling for real product use.",
-    technologies: ["AWS S3", "Cloudinary", "Firebase Storage", "Supabase Storage"],
+    technologies: [
+      { name: "AWS S3", logo: "https://cdn.simpleicons.org/amazons3/569A31" },
+      { name: "Cloudinary", logo: "https://cdn.simpleicons.org/cloudinary/3448C5" },
+      { name: "Firebase Storage", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
+      { name: "Supabase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" },
+    ],
     usedFor: [
       "Document uploads and storage",
       "Media and image management",
@@ -141,7 +171,11 @@ const coreStack = [
     category: "Payment Integrations",
     icon: CreditCard,
     outcome: "Payment flows for SaaS, bookings, subscriptions, and transactions.",
-    technologies: ["Stripe", "Razorpay", "PayPal"],
+    technologies: [
+      { name: "Stripe", logo: "https://cdn.simpleicons.org/stripe/635BFF" },
+      { name: "Razorpay", logo: "https://cdn.simpleicons.org/razorpay/3395FF" },
+      { name: "PayPal", logo: "https://cdn.simpleicons.org/paypal/003087" },
+    ],
     usedFor: [
       "Subscription and recurring billing",
       "SaaS payment flows",
@@ -153,7 +187,13 @@ const coreStack = [
     category: "Realtime & Notifications",
     icon: Radio,
     outcome: "Live updates, alerts, and communication flows inside your product.",
-    technologies: ["WebSockets", "Socket.IO", "Firebase Realtime", "Resend", "SendGrid", "Twilio"],
+    technologies: [
+      { name: "WebSockets", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg" },
+      { name: "Socket.IO", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg" },
+      { name: "Firebase Realtime", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
+      { name: "Resend", logo: "https://cdn.simpleicons.org/resend/white" },
+      { name: "Twilio", logo: "https://cdn.simpleicons.org/twilio/F22F46" },
+    ],
     usedFor: [
       "Live dashboards and feeds",
       "Email and SMS notifications",
@@ -166,13 +206,9 @@ const coreStack = [
     icon: Shield,
     outcome: "Lower launch risk with validation, testing, and secure delivery practices.",
     technologies: [
-      "Jest",
-      "Pytest",
-      "Playwright",
-      "HTTPS",
-      "CORS",
-      "Rate Limiting",
-      "Input Validation",
+      { name: "Jest", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" },
+      { name: "Pytest", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytest/pytest-original.svg" },
+      { name: "Playwright", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg" },
     ],
     usedFor: [
       "Unit and integration testing",
@@ -186,7 +222,11 @@ const coreStack = [
     icon: Bot,
     optional: true,
     outcome: "AI features added only when they improve the product experience.",
-    technologies: ["OpenAI API", "LangChain", "RAG Systems", "Vector DBs", "Hugging Face"],
+    technologies: [
+      { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/412991" },
+      { name: "LangChain", logo: "https://cdn.simpleicons.org/langchain/1C3C3C" },
+      { name: "Hugging Face", logo: "https://cdn.simpleicons.org/huggingface/FFD21E" },
+    ],
     usedFor: [
       "AI assistants and chatbots",
       "Document search and knowledge systems",
@@ -534,10 +574,11 @@ export default function CustomDevelopmentPage() {
                 <div className="flex flex-wrap gap-2">
                   {stack.technologies.map((tech) => (
                     <span
-                      key={tech}
-                      className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-bold text-white/45 group-hover:border-white/20 group-hover:text-white/60 transition-colors duration-300"
+                      key={tech.name}
+                      className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-bold text-white/45 group-hover:border-white/20 group-hover:text-white/60 transition-colors duration-300"
                     >
-                      {tech}
+                      <img src={tech.logo} alt={tech.name} width={14} height={14} className="shrink-0" />
+                      {tech.name}
                     </span>
                   ))}
                 </div>

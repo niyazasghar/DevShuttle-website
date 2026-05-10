@@ -118,7 +118,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* ─── Section 3: Culture & Values ─── */}
+      {/* ─── Section 2: Culture & Values ─── */}
       <section className="relative py-2 lg:py-16 bg-white">
         <div className="container-wide relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -217,7 +217,13 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* ─── Section 2: Mission Statement ─── */}
+      {/* section 3 -industries we cater with */}
+
+      <section>
+        
+      </section>
+
+      {/* ─── Section 4: Mission Statement ─── */}
       <section className="relative py-16 md:py-16 border-t border-black/5 overflow-hidden">
         <div className="container-wide">
           <div className="max-w-5xl">
@@ -310,7 +316,11 @@ export default function AboutPage() {
 
 
 
-      {/* ─── Section 4: Stats ─── */}
+     
+      {/* ─── Section 5: Our Team ─── */}
+      <OurTeam />
+
+       {/* ─── Section 6: Stats ─── */}
       <section className="bg-white py-16 lg:py-16 border-y border-black/5 relative z-10">
         <div className="container-wide">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24">
@@ -340,10 +350,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── Section 5: Our Team ─── */}
-      <OurTeam />
 
-      {/* ─── Section 6: CTA — Accent Sweep ─── */}
+      {/* ─── Section 7: CTA — Accent Sweep ─── */}
       <CallToActionSweep />
     </div>
   );

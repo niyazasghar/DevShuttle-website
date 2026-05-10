@@ -184,10 +184,10 @@ export default function FeaturedWork() {
     <section className="relative z-10 bg-white border-t border-black/5">
       <div className="container-wide">
         {/* Split layout: sticky left + scrolling right */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-28">
 
           {/* ── Left: Sticky heading ── */}
-          <div className="w-full lg:w-[35%] lg:sticky lg:top-2 lg:self-start pt-24 pb-12 lg:pb-6 lg:pt-16 lg:pb-0">
+          <div className="w-full lg:w-[42%] lg:sticky lg:top-2 lg:self-start pt-24 pb-12 lg:pb-6 lg:pt-16 lg:pb-0">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -242,7 +242,7 @@ export default function FeaturedWork() {
           </div>
 
           {/* ── Right: Scrolling cards ── */}
-          <div className="w-full lg:w-[65%] flex flex-col gap-6 py-24 lg:py-32">
+          <div className="w-full lg:w-[48%]  flex flex-col gap-6 py-24 lg:py-32">
             {features.map((feature, idx) => (
               <motion.div
                 key={feature.title}

@@ -194,14 +194,14 @@ export default function SolutionsPage() {
       {solutionCategories.map((category, catIdx) => {
         const isDark = catIdx % 2 !== 0;
         return (
-          <section key={catIdx} className={`py-28 lg:py-24 border-t ${isDark ? 'bg-primary-dark border-white/5' : 'bg-white border-black/5'}`}>
+          <section key={catIdx} className={`py-16 lg:py-16 border-t ${isDark ? 'bg-primary-dark border-white/5' : 'bg-white border-black/5'}`}>
             <div className="container-wide">
                <motion.div
                  initial={{ opacity: 0, y: 30 }}
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                 className="mb-20 lg:mb-28"
+                 className="mb-20 lg:mb-16"
                >
                   <span className="text-xs uppercase tracking-[0.4em] font-bold text-accent mb-6 block">
                      {category.group}

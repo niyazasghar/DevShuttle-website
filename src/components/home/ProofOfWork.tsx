@@ -34,7 +34,7 @@ const projects = [
 
 export default function ProofOfWork() {
   return (
-    <section className="py-20 lg:py-28 relative z-10 bg-white">
+    <section className="py-20 lg:py-16 relative z-10 bg-white">
       <div className="container-wide flex flex-col items-center">
 
         {/* Section heading */}
@@ -100,7 +100,7 @@ export default function ProofOfWork() {
       </div>
 
       {/* Scrolling banner */}
-      <div className="mt-20 w-full bg-gradient-to-r from-brand-gray-900 via-brand-gray-800 to-brand-gray-900 py-4 overflow-hidden">
+      <div className="mt-16 w-full bg-gradient-to-r from-brand-gray-900 via-brand-gray-800 to-brand-gray-900 py-4 overflow-hidden">
         <div className="flex animate-marquee-left whitespace-nowrap">
           {[...Array(10)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center gap-0">

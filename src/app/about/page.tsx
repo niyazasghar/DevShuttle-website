@@ -6,6 +6,7 @@ import Image from "next/image";
 import OurTeam from "@/components/home/OurTeam";
 import { useRef } from "react";
 import CallToActionSweep from "@/components/home/CallToActionSweep";
+import IndustriesWeCater from "@/components/home/IndustriesWeCater";
 
 const values = [
   {
@@ -217,11 +218,8 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* section 3 -industries we cater with */}
-
-      <section>
-        
-      </section>
+      {/* ─── Section 3: Industries We Cater to ─── */}
+      <IndustriesWeCater />
 
       {/* ─── Section 4: Mission Statement ─── */}
       <section className="relative py-16 md:py-16 border-t border-black/5 overflow-hidden">

@@ -76,18 +76,18 @@ export default function Hero() {
           >
             <Link
               href="/contact"
-              className="group relative px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] w-full sm:w-auto sm:min-w-[200px] text-center transition-transform duration-300 bg-accent text-primary-dark"
+              className="group relative px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] w-full sm:w-auto sm:min-w-[200px] text-center transition-transform duration-300 bg-accent border border-accent"
             >
-              <span className="absolute inset-0 bg-white/20 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
-              <span className="relative z-10">Book a Free Project Discussion</span>
+              <span className="absolute inset-0 bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
+              <span className="relative z-10 text-primary-dark group-hover:text-accent transition-colors duration-300 delay-75">Book a Free Project Discussion</span>
             </Link>
 
             <Link
               href="/services"
-              className="group relative px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] w-full sm:w-auto sm:min-w-[200px] text-center transition-transform duration-300 border border-white/20 hover:border-white/40"
+              className="group relative px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase overflow-hidden active:scale-[0.98] w-full sm:w-auto sm:min-w-[200px] text-center transition-transform duration-300 border border-white/20"
             >
-              <span className="absolute inset-0 bg-white/[0.08] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
-              <span className="relative z-10 text-white">Explore Services</span>
+              <span className="absolute inset-0 bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-full" />
+              <span className="relative z-10 text-white group-hover:text-primary-dark transition-colors duration-300 delay-75">Explore Services</span>
             </Link>
           </motion.div>
 

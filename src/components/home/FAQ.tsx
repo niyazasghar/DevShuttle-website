@@ -59,12 +59,12 @@ export default function FAQ() {
                  <div key={idx} className="border-b border-brand-gray-200">
                     <button
                       onClick={() => setOpenIndex(isOpen ? null : idx)}
-                      className="w-full py-6 flex items-center justify-between text-left group gap-10"
+                      className="w-full py-4 flex items-center justify-between text-left group gap-10"
                     >
                       <h3 className="text-base md:text-xl font-display font-medium text-brand-gray-900 group-hover:text-accent transition-colors duration-300">
                         {faq.question}
                       </h3>
-                      <div className={`w-12 h-12 flex items-center justify-center border border-brand-gray-200 rounded-full transition-all duration-500 ${isOpen ? 'bg-accent border-accent text-white scale-110 rotate-180' : 'text-brand-gray-300 group-hover:border-brand-gray-400'}`}>
+                      <div className={`w-8 h-8 flex items-center justify-center border border-brand-gray-200 rounded-full transition-all duration-500 ${isOpen ? 'bg-accent border-accent text-white scale-110 rotate-180' : 'text-brand-gray-300 group-hover:border-brand-gray-400'}`}>
                         {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                       </div>
                     </button>

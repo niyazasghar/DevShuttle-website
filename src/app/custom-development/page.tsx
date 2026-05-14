@@ -139,7 +139,7 @@ const coreStack = [
       { name: "Vercel", logo: "https://cdn.simpleicons.org/vercel/white" },
       { name: "Render", logo: "https://cdn.simpleicons.org/render/46E3B7" },
       { name: "Railway", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/railway/railway-original.svg" },
-      { name: "AWS", logo: "https://cdn.simpleicons.org/amazonaws/FF9900" },
+      { name: "AWS", logo: "https://img.icons8.com/?size=150&id=33039&format=png&color=000000" },
       { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
       { name: "GitHub Actions", logo: "https://cdn.simpleicons.org/githubactions/2088FF" },
     ],
@@ -155,7 +155,7 @@ const coreStack = [
     icon: HardDrive,
     outcome: "Reliable file, media, and document handling for real product use.",
     technologies: [
-      { name: "AWS S3", logo: "https://cdn.simpleicons.org/amazons3/569A31" },
+      { name: "AWS S3", logo: "https://img.icons8.com/?size=100&id=106501&format=png&color=000000" },
       { name: "Cloudinary", logo: "https://cdn.simpleicons.org/cloudinary/3448C5" },
       { name: "Firebase Storage", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
       { name: "Supabase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" },
@@ -192,7 +192,7 @@ const coreStack = [
       { name: "Socket.IO", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg" },
       { name: "Firebase Realtime", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
       { name: "Resend", logo: "https://cdn.simpleicons.org/resend/white" },
-      { name: "Twilio", logo: "https://cdn.simpleicons.org/twilio/F22F46" },
+      { name: "Twilio", logo: "https://img.icons8.com/?size=100&id=ZhlVdE53t65r&format=png&color=000000" },
     ],
     usedFor: [
       "Live dashboards and feeds",
@@ -223,7 +223,7 @@ const coreStack = [
     optional: true,
     outcome: "AI features added only when they improve the product experience.",
     technologies: [
-      { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/412991" },
+      { name: "OpenAI", logo: "https://img.icons8.com/?size=100&id=FBO05Dys9QCg&format=png&color=000000" },
       { name: "LangChain", logo: "https://cdn.simpleicons.org/langchain/1C3C3C" },
       { name: "Hugging Face", logo: "https://cdn.simpleicons.org/huggingface/FFD21E" },
     ],
@@ -240,9 +240,9 @@ const coreStack = [
 
 const proofStats = [
   { value: "40+", label: "Digital builds delivered" },
-  { value: "2â€“12 weeks", label: "Typical delivery window" },
+  { value: "2-12 weeks", label: "Typical delivery window" },
   { value: "Full-stack", label: "Frontend to cloud" },
-  { value: "India â†’ Global", label: "Remote delivery" },
+  { value: "India → Global", label: "Remote delivery" },
 ];
 
 const whyDevShuttle = [
@@ -307,7 +307,7 @@ export default function CustomDevelopmentPage() {
       </motion.span>
 
       {/* Hero */}
-      <section className="relative pt-36 md:pt-32 pb-16 md:pb-20 overflow-hidden">
+      <section className="relative pt-36 md:pt-20 pb-16 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <svg width="100%" height="100%" className="opacity-[0.025]">
             <defs>
@@ -396,7 +396,7 @@ export default function CustomDevelopmentPage() {
       </section>
 
       {/* Technical Pillars */}
-      <section className="relative py-16 lg:py-24 bg-white border-t border-black/5 overflow-hidden">
+      <section className="relative py-16 lg:py-16 bg-white border-t border-black/5 overflow-hidden">
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-24 mb-14 lg:mb-20">
             <div className="lg:w-7/12">
@@ -476,7 +476,7 @@ export default function CustomDevelopmentPage() {
       </section>
 
       {/* Core Technology Stack */}
-      <section className="relative py-16 lg:py-24 bg-primary-dark border-t border-white/5 overflow-hidden">
+      <section className="relative py-16 lg:py-16 bg-primary-dark border-t border-white/5 overflow-hidden">
         {/* Subtle dot-grid background */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]" aria-hidden>
           <svg width="100%" height="100%">
@@ -588,7 +588,7 @@ export default function CustomDevelopmentPage() {
         </div>
       </section>
       {/* Why DevShuttle */}
-      <section className="relative py-16 md:py-24 bg-white border-t border-black/5 overflow-hidden">
+      <section className="relative py-16 md:py-16 bg-white border-t border-black/5 overflow-hidden">
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-24 mb-16 lg:mb-20">
             <div className="lg:w-7/12">
@@ -681,7 +681,7 @@ export default function CustomDevelopmentPage() {
       </section>
 
       {/* ── Service Packages Teaser ── */}
-      <section className="relative py-16 lg:py-24 bg-background-light border-t border-black/5 overflow-hidden">
+      <section className="relative py-16 lg:py-16 bg-background-light border-t border-black/5 overflow-hidden">
         <div className="container-wide">
           {/* Section header */}
           <div className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-24 mb-14 lg:mb-16">
@@ -834,7 +834,7 @@ export default function CustomDevelopmentPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-accent/20 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] pointer-events-none" />
 
-        <div className="container-wide relative z-10 py-20 lg:py-28">
+        <div className="container-wide relative z-10 py-20 lg:py-16">
           <div className="max-w-4xl">
             <motion.span
               initial={{ opacity: 0, y: 10 }}

@@ -1,7 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import CommonCard from "@/components/CommonCard";
 
 const projects = [
@@ -29,57 +31,94 @@ const projects = [
     href: "/work",
     bgColor: "#059669",
   },
- 
 ];
 
 export default function ProofOfWork() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === "left" ? -400 : 400;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="py-20 lg:py-16 relative z-10 bg-white">
       <div className="container-wide flex flex-col items-center">
 
-        {/* Section heading */}
-        <div className="mb-24 w-full max-w-6xl text-center lg:text-left transition-all">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
-            className="eyebrow !text-accent/60"
-          >
-            From Idea to Working Product
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-[clamp(2rem,4vw,3.5rem)] font-display font-bold text-primary-dark leading-[1.1] mb-10"
-          >
-            We turn business ideas into usable digital systems.
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-lg md:text-xl text-brand-gray-500 max-w-3xl leading-[1.8] font-light"
-          >
-            We help founders and business owners move from scattered ideas, outdated websites, spreadsheets, and manual workflows to clean, scalable, production-ready digital products.
-          </motion.p>
+        {/* Section heading + arrows row */}
+        <div className="mb-16 w-full max-w-6xl transition-all">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-0">
+            <div className="text-center lg:text-left">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
+                className="eyebrow !text-accent/60"
+              >
+                From Idea to Working Product
+              </motion.span>
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+                className="text-[clamp(2rem,4vw,3.5rem)] font-display font-bold text-primary-dark leading-[1.1] mb-6"
+              >
+                We turn business ideas into usable digital systems.
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] as const }}
+                className="text-lg md:text-xl text-brand-gray-500 max-w-3xl leading-[1.8] font-light"
+              >
+                We help founders and business owners move from scattered ideas, outdated websites, spreadsheets, and manual workflows to clean, scalable, production-ready digital products.
+              </motion.p>
+            </div>
+
+            {/* Arrow buttons */}
+            <div className="flex items-center gap-4 shrink-0 self-center md:self-end">
+              <button
+                onClick={() => scroll("left")}
+                className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-primary-dark hover:bg-primary-dark hover:text-white transition-colors"
+                aria-label="Previous"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scroll("right")}
+                className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-primary-dark hover:bg-primary-dark hover:text-white transition-colors"
+                aria-label="Next"
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* 3-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full mb-16">
+        {/* Swipeable carousel */}
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 w-full -mx-4 px-4 md:mx-0 md:px-0 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden mb-16"
+        >
           {projects.map((project, idx) => (
-            <CommonCard
+            <div
               key={project.title}
-              title={project.title}
-              subtitle={project.subtitle}
-              image={project.image}
-              href={project.href}
-              bgColor={project.bgColor}
-              delay={idx * 0.1}
-            />
+              className="w-[280px] sm:w-[340px] md:w-[380px] lg:w-[420px] shrink-0 snap-start"
+            >
+              <CommonCard
+                title={project.title}
+                subtitle={project.subtitle}
+                image={project.image}
+                href={project.href}
+                bgColor={project.bgColor}
+                delay={idx * 0.1}
+              />
+            </div>
           ))}
         </div>
 

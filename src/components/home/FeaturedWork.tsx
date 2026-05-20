@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import {
   LayoutDashboard,
@@ -7,6 +8,7 @@ import {
   Blocks,
   Code2,
   ArrowRight,
+  ArrowLeft,
   CheckCircle2,
   Users,
   Calendar,
@@ -180,6 +182,14 @@ const features = [
 ];
 
 export default function FeaturedWork() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: direction === "left" ? -400 : 400, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative z-10 bg-white border-t border-black/5">
       <div className="container-wide">
@@ -239,10 +249,33 @@ export default function FeaturedWork() {
                 </span>
               </Link>
             </motion.div>
+
+            {/* Arrow buttons — mobile only */}
+            <div className="flex items-center gap-4 mt-8 lg:hidden">
+              <button
+                onClick={() => scroll("left")}
+                className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-primary-dark hover:bg-primary-dark hover:text-white transition-colors"
+                aria-label="Previous"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scroll("right")}
+                className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-primary-dark hover:bg-primary-dark hover:text-white transition-colors"
+                aria-label="Next"
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
-          {/* ── Right: Scrolling cards ── */}
-          <div className="w-full lg:w-[48%]  flex flex-col gap-6 py-24 lg:py-32">
+          {/* ── Right: Scrolling cards — snap carousel on mobile, vertical stack on lg+ ── */}
+          <div
+            ref={scrollRef}
+            className="w-full lg:w-[48%] py-12 lg:py-32
+                       flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+                       lg:overflow-x-visible lg:flex-col lg:mx-0 lg:px-0"
+          >
             {features.map((feature, idx) => (
               <motion.div
                 key={feature.title}
@@ -250,6 +283,7 @@ export default function FeaturedWork() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.04, ease: [0.16, 1, 0.3, 1] as const }}
+                className="w-[82vw] sm:w-[400px] shrink-0 snap-start lg:w-auto lg:shrink lg:snap-align-none"
               >
                 <Link href={feature.href} className="group block">
                   <div className="relative bg-white border border-brand-gray-200 rounded-2xl p-5 lg:p-6 transition-all duration-500 hover:border-accent/30 hover:shadow-xl hover:shadow-black/5 overflow-hidden flex flex-col">
